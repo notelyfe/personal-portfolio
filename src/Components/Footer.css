@@ -1,0 +1,14 @@
+.social-links{
+    text-decoration: none;
+    font-size: 23px;
+}
+
+a:hover{
+    color: rgb(175, 111, 175) !important;
+}
+
+@media(max-width: 786px){
+    .footer{
+        flex-direction: column;
+    }
+}
