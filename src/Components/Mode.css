@@ -1,7 +1,7 @@
 .mode {
     position: fixed;
-    bottom: 85px;
-    right: 70px;
+    bottom: 15px;
+    right: 18px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -13,10 +13,4 @@
     height: 33px;
     width: 33px;
     border-radius: 50%;
-}
-
-@media (max-width: 786px) {
-    .mode{
-        bottom: 176px;
-    }
 }

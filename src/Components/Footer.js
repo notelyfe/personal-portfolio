@@ -16,7 +16,7 @@ const Footer = () => {
   const {modeStyle} = context
 
   return (
-    <footer className={`footer text-center py-1 bg-${modeStyle.bgColor} text-${modeStyle.textColor} fixed-bottom d-flex justify-content-evenly align-items-center`} style={{opacity: '0.9'}}>
+    <footer className={`footer text-center py-1 bg-${modeStyle.bgColor} text-${modeStyle.textColor}  d-flex justify-content-evenly align-items-center`} style={{opacity: '0.9'}}>
       <div className="container author py-2 mx-1">
         <img src={note} alt="note.png" className='developer'/>
       </div>

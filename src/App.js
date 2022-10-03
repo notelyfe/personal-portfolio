@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar';
-import Home from './Components/Home';
+import Home from './Components/Home/Home';
 import About from './Components/About';
 import Projects from './Components/Projects';
 import Certificates from './Components/Certificates';

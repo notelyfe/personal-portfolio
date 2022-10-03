@@ -1,0 +1,31 @@
+.home{
+    margin-top: 90px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 82vh !important;
+}
+
+.img-logo{
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    border: 2px solid #2C7090;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.self-introduction{
+    max-width: 60%;
+}
+
+.velvet{
+    color: #2C7090;
+}
+
+.home-about-body {
+    padding-top: 50px;
+    font-size: 1.2em !important;
+    text-align: left;
+  }
