@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
 import logo from './Assets/logo.png'
 import { Link } from 'react-router-dom'
@@ -10,8 +10,12 @@ import {
 import { TbCertificate } from "react-icons/tb";
 import { RiAdminLine } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
+import Context from './context/Context'
 
 const Navbar = () => {
+
+    const context = useContext(Context)
+    const { modeStyle } = context
 
     const toggleActive = () => {
         const hamburger = document.querySelector(".ham");
@@ -25,17 +29,19 @@ const Navbar = () => {
         const hamburger = document.querySelector(".ham");
         const navMenu = document.querySelector(".nav-ul");
 
+        console.log(navMenu)
+
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }
 
     return (
-        <div className="bg-dark text-light nav-container fixed-top">
+        <div className={`bg-${modeStyle.bgColor} text-${modeStyle.textColor} nav-container fixed-top`}>
             <Link to="/">
                 <img src={logo} className="logo" alt='logo.png' />
             </Link>
             <nav className="nav-items">
-                <ul className='navbar-nav bg-dark my-2 my-lg-0 nav-ul py-1'>
+                <ul className={`navbar-nav bg-${modeStyle.bgColor} text-${modeStyle.textColor} my-2 my-lg-0 nav-ul py-1`}>
                     <li className='nav-item' onClick={toggleRemove}>
                         <AiOutlineHome className='icons mx-1' />
                         <Link className='nav-link' to="/">Home</Link>

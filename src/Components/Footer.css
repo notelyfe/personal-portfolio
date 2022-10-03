@@ -2,9 +2,17 @@
     text-decoration: none;
     font-size: 23px;
 }
+.footer{
+    box-shadow: 0 0px 5px rgba(72, 44, 78, 0.8);
+}
+
+.developer{
+    width: 120px;
+    height: 30px;
+}
 
 a:hover{
-    color: rgb(175, 111, 175) !important;
+    color: #2C7090 !important;
 }
 
 @media(max-width: 786px){

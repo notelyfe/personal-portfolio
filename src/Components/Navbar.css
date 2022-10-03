@@ -5,6 +5,7 @@
     height: 75px;
     opacity: 0.9;
     z-index: 1;
+    box-shadow: 0 0px 5px rgba(72, 44, 78, 0.8);
 }
 
 .logo{
@@ -30,7 +31,7 @@
     align-items: center;
 }
 .nav-item:hover{
-    color: rgb(175, 111, 175);
+    color: #2C7090 !important;
 }
 
 .icons{
@@ -40,8 +41,7 @@
 .ham{
     display: none;
     cursor: pointer;
-    border: 2px solid rgb(175, 111, 175);
-    box-shadow: 0 1px 5px rgba(230, 214, 233, 0.8);
+    border: 2px solid #2C7090;
 }
 
 .bar{
@@ -51,7 +51,7 @@
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: rgb(175, 111, 175);
+    background-color: #2C7090;
 }
 
 @media (max-width: 950px) {
@@ -86,7 +86,6 @@
         margin: auto;
         opacity: 0.9;
         z-index: -1;
-        box-shadow: 0 1px 5px rgba(72, 44, 78, 0.8);
     }
     .nav-ul.active{
         top: 67px;

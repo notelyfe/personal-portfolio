@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Mode.css'
-import { FiSun } from "react-icons/fi";
-import { BsMoonFill } from "react-icons/bs";
+import { BsMoonFill, BsSunFill } from "react-icons/bs";
+import Context from './context/Context'
 
 const Mode = () => {
+
+  const context = useContext(Context);
+  const { handelDarkMode, mode, modeStyle } = context
+
   return (
-    <div className='mode bg-dark text-light d-flex justify-content-center align-items-center'>
-      <BsMoonFill className='toggle-mode'/>
-      <FiSun className='toggle-mode'/>
+    <div className={`mode bg-${modeStyle.textColor} text-${modeStyle.bgColor} d-flex justify-content-center align-items-center`} 
+    style={{boxShadow :`${modeStyle.boxshadow}`}}>
+      {(mode === true) ?
+        <BsMoonFill onClick={handelDarkMode} className='toggle-mode' /> :
+        <BsSunFill onClick={handelDarkMode} className='toggle-mode' />
+      }
     </div>
   )
 }

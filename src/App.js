@@ -13,23 +13,26 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import State from './Components/context/State';
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/certificates' element={<Certificates />} />
-          <Route path='/resume' element={<Resume />} />
-          <Route path='/admin' element={<Admin />} />
-        </Routes>
-        <Mode />
-        <Footer />
-      </Router>
+      <State>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/certificates' element={<Certificates />} />
+            <Route path='/resume' element={<Resume />} />
+            <Route path='/admin' element={<Admin />} />
+          </Routes>
+          <Mode />
+          <Footer />
+        </Router>
+      </State>
     </>
   );
 }
