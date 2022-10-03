@@ -9,7 +9,7 @@ const Home2 = () => {
     return (
 
         <div className={`container self-introduction mt-5 mb-3 text-${modeStyle.textColor}`}>
-            <h1 className='text-center' style={{ fontSize: "2.0em" }}>
+            <h1 className='text-center' style={{ fontSize: "2.1em" }}>
                 A SMALL <span className="velvet"> INTRODUCTION </span>
             </h1>
             <p className="home-about-body">
