@@ -1,0 +1,45 @@
+.project-container{
+    margin-top: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card{
+    border: 2px solid #2C7090;
+    transition: all 0.4s ease 0s !important;
+    box-shadow: 0px 5px 4px 3px rgba(28, 137, 188, 0.137) !important;
+}
+
+.content{
+    height: 180px;
+    text-align: justify;
+}
+
+.link{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-link{
+    width: 90%;
+}
+
+.card:hover{
+    transform: scale(1.05) !important;
+}
+
+.btn-primary{
+    background-color: #2C7090 !important;
+    border: 1px solid #2C7090 !important;
+}
+
+.btn-primary:hover{
+    color: #05ABC4 !important;
+}

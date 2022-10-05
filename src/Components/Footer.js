@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import './Footer.css'
-import { Link } from 'react-router-dom'
 import {
   AiOutlineGithub,
   AiOutlineInstagram,
@@ -13,12 +12,12 @@ import note from '../Components/Assets/note.png'
 const Footer = () => {
 
   const context = useContext(Context)
-  const {modeStyle} = context
+  const { modeStyle } = context
 
   return (
-    <footer className={`footer text-center py-1 bg-${modeStyle.bgColor} text-${modeStyle.textColor}  d-flex justify-content-evenly align-items-center`} style={{opacity: '0.9'}}>
+    <footer className={`footer text-center py-1 bg-${modeStyle.bgColor} text-${modeStyle.textColor}  d-flex justify-content-evenly align-items-center`} style={{ opacity: '0.9' }}>
       <div className="container author py-2 mx-1">
-        <img src={note} alt="note.png" className='developer'/>
+        <img src={note} alt="note.png" className='developer' />
       </div>
 
       <div className="container copyright py-2 mx-1">
@@ -26,18 +25,38 @@ const Footer = () => {
       </div>
 
       <div className="container container-social-links">
-        <ul className='d-flex justify-content-center px-0 my-1 align-items-center footer-item' style={{listStyle:'none'}}>
+        <ul className='d-flex justify-content-center px-0 my-1 align-items-center footer-item' style={{ listStyle: 'none' }}>
           <li className=' my-1 py-1 px-2'>
-            <Link className={`social-links px-1 text-${modeStyle.textColor}`} to=""><AiOutlineGithub /></Link>
+            <a
+              className={`social-links px-1 text-${modeStyle.textColor}`}
+              href="https://github.com/notelyfe"
+              target="__blank">
+              <AiOutlineGithub />
+            </a>
           </li>
           <li className=' my-1 py-1 px-2'>
-            <Link className={`social-links px-1 text-${modeStyle.textColor}`} to=""><AiOutlineInstagram /></Link>
+            <a
+              className={`social-links px-1 text-${modeStyle.textColor}`}
+              href="https://www.instagram.com/notelyfe/"
+              target="__blank">
+              <AiOutlineInstagram />
+            </a>
           </li>
           <li className=' my-1 py-1 px-2'>
-            <Link className={`social-links px-1 text-${modeStyle.textColor}`} to=""><AiOutlineTwitter /></Link>
+            <a
+              className={`social-links px-1 text-${modeStyle.textColor}`}
+              href="https://twitter.com/note_lyfe"
+              target="__blank">
+              <AiOutlineTwitter />
+            </a>
           </li>
           <li className=' my-1 py-1 px-2'>
-            <Link className={`social-links px-1 text-${modeStyle.textColor}`} to=""><AiOutlineLinkedin /></Link>
+            <a
+              className={`social-links px-1 text-${modeStyle.textColor}`}
+              href="https://www.linkedin.com/in/notelyfe/"
+              target="__blank">
+              <AiOutlineLinkedin />
+            </a>
           </li>
         </ul>
       </div>
