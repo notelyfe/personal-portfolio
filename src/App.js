@@ -5,9 +5,10 @@ import About from './Components/About/About';
 import Projects from './Components/Projects';
 import Certificates from './Components/Certificates';
 import Resume from './Components/Resume';
-import Admin from './Components/Admin';
+import Admin from './Components/Admin/Admin';
 import Footer from './Components/Footer';
 import Mode from './Components/Mode';
+import AdminNav from './Components/Admin/AdminNav';
 import {
   BrowserRouter as Router,
   Route,
@@ -28,6 +29,7 @@ function App() {
             <Route path='/certificates' element={<Certificates />} />
             <Route path='/resume' element={<Resume />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='/user' element={<AdminNav />} />
           </Routes>
           <Mode />
           <Footer />

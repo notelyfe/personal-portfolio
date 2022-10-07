@@ -1,0 +1,38 @@
+.adminNav {
+    margin-top: 100px;
+}
+
+.admin-nav-ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#drag-drop {
+    width: 80%;
+    height: 50vh;
+    border: 2px dotted grey;
+    background-color: #FAFAFA;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#img {
+    border-radius: 20px;
+    height: 50vh;
+    width: 50%;
+}
+
+#upload {
+    width: 235px;
+}
+
+#addProductImage {
+    width: 248px;
+    height: 35px;
+    border-radius: 8px;
+}

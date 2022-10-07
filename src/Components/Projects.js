@@ -3,6 +3,7 @@ import './Project.css'
 import pro from './Assets/hotelBooking.png'
 import Context from './context/Context'
 import { Link } from 'react-router-dom'
+import { TbExternalLink } from "react-icons/tb";
 
 const Projects = () => {
 
@@ -21,8 +22,8 @@ const Projects = () => {
             <p className="card-text px-1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
           <div className="link">
-            <Link to="#" className="btn btn-primary project-link my-1">View Project</Link>
-            <Link to="#" className="btn btn-primary project-link my-1">View WebSite</Link>
+            <Link to="#" className="btn btn-primary project-link my-1"><TbExternalLink className='mx-1'/>View Project</Link>
+            <Link to="#" className="btn btn-primary project-link my-1"><TbExternalLink className='mx-1'/>View WebSite</Link>
           </div>
         </div>
       </div>
