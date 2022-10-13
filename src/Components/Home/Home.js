@@ -4,7 +4,6 @@ import './Home.css'
 import Typewriter from 'typewriter-effect'
 import Context from '../context/Context'
 import Home2 from './Home2'
-import Spotify from './Spotify'
 
 const Home = () => {
 
@@ -46,7 +45,6 @@ const Home = () => {
         </div>
       </div>
       <Home2 />
-      <Spotify />
     </>
   )
 }

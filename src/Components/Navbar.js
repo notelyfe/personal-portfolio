@@ -29,8 +29,6 @@ const Navbar = () => {
         const hamburger = document.querySelector(".ham");
         const navMenu = document.querySelector(".nav-ul");
 
-        console.log(navMenu)
-
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }

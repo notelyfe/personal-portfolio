@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/personal-portfolio-backEnd
 .pnp.js
 
 # testing

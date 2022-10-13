@@ -20,8 +20,7 @@ const State = (props) => {
                 textColor: 'dark',
                 boxshadow: '0px 0px 10px rgba(20, 16, 21, 0.8)'
             })
-            document.body.style.backgroundColor = 'white'
-            
+            document.body.style.backgroundColor = 'white'   
         }
     }
     const [mode, setMode] = useState(true)
