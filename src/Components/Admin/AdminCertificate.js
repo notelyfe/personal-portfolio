@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../context/Context'
 
 const AdminCertificate = () => {
+
+  const context = useContext(Context)
+  const { modeStyle } = context
+
   return (
-    <div>
-      ceri
+    <div className="container admin-data-container rounded mt-3" style={{ marginBottom: '22vh'}}>
+      <h1 className={`text-center text-${modeStyle.textColor}`}>Certificate</h1>
+      <form className={`my-2 rounded p-2 text-${modeStyle.textColor}`} style={{ width: '350px', margin: 'auto', border: '2px solid #2C7090' }}>
+        <div className='my-3'>
+          <input  type="file" id='upload'/>
+        </div>
+        <div className="mb-3">
+          <label
+            htmlFor="title"
+            className="form-label">
+            Certificate Title
+          </label>
+          <input
+            required
+            type="text"
+            className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
+            id="title"
+            aria-describedby="title"
+            style={{ border: '1px solid #2C7090' }} />
+        </div>
+        <div className="mb-3">
+          <label
+            htmlFor="issued"
+            className="form-label">
+            Issued By
+          </label>
+          <input
+            required
+            type="text"
+            className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
+            id="issued"
+            style={{ border: '1px solid #2C7090' }} />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-primary">
+          Upload
+        </button>
+      </form>
     </div>
   )
 }

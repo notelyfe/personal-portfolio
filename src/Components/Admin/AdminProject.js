@@ -50,7 +50,7 @@ const AdminProject = () => {
     }, 10);
 
     return (
-        <div className="container admin-project-container rounded mt-3">
+        <div className="container admin-data-container rounded mt-3">
             <h1 className={`text-center text-${modeStyle.textColor}`}>Project</h1>
             <form className={`my-2 rounded p-2 text-${modeStyle.textColor}`} style={{ width: '350px', margin: 'auto', border: '2px solid #2C7090' }}>
                 <div id="drag-drop" className='my-3'>

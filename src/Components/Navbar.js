@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Navbar.css'
 import logo from './Assets/logo.png'
 import { Link } from 'react-router-dom'
@@ -10,9 +10,15 @@ import {
 import { TbCertificate } from "react-icons/tb";
 import { RiAdminLine } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
-import Context from './context/Context'
+import Context from './context/Context';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+
+    let location = useLocation();
+    useEffect(() => {
+        
+    }, [location]);
 
     const context = useContext(Context)
     const { modeStyle } = context
@@ -62,7 +68,7 @@ const Navbar = () => {
                     </li>
                     <li className='nav-item' onClick={toggleRemove}>
                         <RiAdminLine className='icons mx-1' />
-                        <Link className='nav-link' to="/admin">Admin</Link>
+                        <Link className={`nav-link ${(location.pathname === '/user') ? 'disabled' : ''}`} to="/admin">Admin</Link>
                     </li>
                 </ul>
             </nav>

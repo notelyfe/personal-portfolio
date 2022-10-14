@@ -13,7 +13,7 @@ const Protected = (props) => {
 
     useEffect(() => {
         let login = localStorage.getItem('myToken')
-        if( login != checkToken ){
+        if( login !== checkToken ){
             navigate('/admin')
         }
     })
