@@ -8,31 +8,6 @@
     justify-content: center;
 }
 
-#drag-drop {
-    width: 60%;
-    border: 2px dotted #2C7090;
-    margin: auto;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#img {
-    border-radius: 20px;
-    width: 100%;
-}
-
-#upload {
-    width: 235px;
-}
-
-#addProductImage{
-    font-size: 10px;
-}
-
-.placeholder-image{
-    width: 20px;
-    height: 20px;
+input, textarea{
+    border: 1px solid #2C7090 !important;
 }

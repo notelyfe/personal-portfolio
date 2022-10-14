@@ -8,7 +8,9 @@ import { TbExternalLink } from "react-icons/tb";
 const Projects = () => {
 
   const context = useContext(Context)
-  const { modeStyle } = context
+  const { modeStyle, projects } = context
+
+  console.log(projects)
 
   return (
     <div className={`row project-container text-${modeStyle.textColor}`}>

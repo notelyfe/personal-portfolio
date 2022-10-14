@@ -11,7 +11,7 @@ const AdminCertificate = () => {
       <h1 className={`text-center text-${modeStyle.textColor}`}>Certificate</h1>
       <form className={`my-2 rounded p-2 text-${modeStyle.textColor}`} style={{ width: '350px', margin: 'auto', border: '2px solid #2C7090' }}>
         <div className='my-3'>
-          <input  type="file" id='upload'/>
+          <input className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`} type="file" id='upload'/>
         </div>
         <div className="mb-3">
           <label
@@ -24,8 +24,7 @@ const AdminCertificate = () => {
             type="text"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
             id="title"
-            aria-describedby="title"
-            style={{ border: '1px solid #2C7090' }} />
+            aria-describedby="title" />
         </div>
         <div className="mb-3">
           <label
@@ -37,8 +36,7 @@ const AdminCertificate = () => {
             required
             type="text"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
-            id="issued"
-            style={{ border: '1px solid #2C7090' }} />
+            id="issued" />
         </div>
         <button
           type="submit"

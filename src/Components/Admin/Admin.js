@@ -15,7 +15,9 @@ const Admin = () => {
   const login = async (e) => {
     e.preventDefault()
 
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const host = "http://localhost:5000";
+
+    const response = await fetch(`${host}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -45,13 +47,10 @@ const Admin = () => {
   const [user_id, setUser_Id] = useState('')
   const [password, setPassword] = useState('')
 
-  const showpass = (e) => {
+  const handelPassVisibility = (e) => {
     e.preventDefault()
-    setShow(true)
-  }
-  const hidepass = (e) => {
-    e.preventDefault()
-    setShow(false)
+
+    {(show === true) ? setShow(false) : setShow(true)}
   }
   const [show, setShow] = useState(false)
 
@@ -79,7 +78,7 @@ const Admin = () => {
               id="pass"
               value={password}
               onChange={authPass} />
-            {(show === true) ? <AiOutlineEyeInvisible onClick={hidepass} className='hide-show' /> : <AiOutlineEye onClick={showpass} className='hide-show' />}
+            {(show === true) ? <AiOutlineEyeInvisible onClick={handelPassVisibility} className='hide-show' /> : <AiOutlineEye onClick={handelPassVisibility} className='hide-show' />}
 
           </div>
           <button

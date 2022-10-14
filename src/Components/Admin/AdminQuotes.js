@@ -22,8 +22,7 @@ const AdminQuotes = () => {
             type="text"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
             id="title"
-            aria-describedby="title"
-            style={{ border: '1px solid #2C7090' }} />
+            aria-describedby="title"/>
         </div>
         <button
           type="submit"
