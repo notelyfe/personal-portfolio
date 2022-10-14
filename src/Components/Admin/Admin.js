@@ -24,6 +24,7 @@ const Admin = () => {
     });
     const json = await response.json();
     if (json.success) {
+      localStorage.setItem('myToken', json.authtoken)
       navigate('/user')
     }
     else {
