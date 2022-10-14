@@ -3,6 +3,11 @@ import Context from './Context'
 
 const State = (props) => {
 
+    const checkValidation = (token) => {
+        setCheckToken(token)
+    }
+    const [checkToken, setCheckToken] = useState('')
+
     const handelDarkMode = (e) => {
         e.preventDefault();
         (mode === true ? setMode(false) : setMode(true))
@@ -27,7 +32,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: 'light', textColor: 'dark', boxshadow: '0px 0px 10px rgba(20, 16, 21, 0.8)' })
 
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken }}>
             {props.children}
         </Context.Provider>
     )

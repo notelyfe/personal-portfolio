@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Context from './context/Context'
 
 const Protected = (props) => {
+
+    const context = useContext(Context)
+    const { checkToken } = context
 
     const { Component } = props
 
@@ -9,7 +13,7 @@ const Protected = (props) => {
 
     useEffect(() => {
         let login = localStorage.getItem('myToken')
-        if(!login){
+        if( login != checkToken ){
             navigate('/admin')
         }
     })

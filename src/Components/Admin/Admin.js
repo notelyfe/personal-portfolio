@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Admin = () => {
 
   const context = useContext(Context)
-  const { modeStyle } = context
+  const { modeStyle, checkValidation } = context
   let navigate = useNavigate()
 
   const login = async (e) => {
@@ -25,6 +25,7 @@ const Admin = () => {
     const json = await response.json();
     if (json.success) {
       localStorage.setItem('myToken', json.authtoken)
+      checkValidation(json.authtoken)
       navigate('/user')
     }
     else {
