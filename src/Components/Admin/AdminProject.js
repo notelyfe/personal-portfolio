@@ -79,7 +79,7 @@ const AdminProject = () => {
                     <textarea
                         required
                         minLength={5}
-                        rows={4}
+                        rows={5}
                         type="text"
                         className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
                         id="description"

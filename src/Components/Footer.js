@@ -30,7 +30,7 @@ const Footer = () => {
             <a
               className={`social-links px-1 text-${modeStyle.textColor}`}
               href="https://github.com/notelyfe"
-              target="__blank">
+              target="_blank">
               <AiOutlineGithub />
             </a>
           </li>
@@ -38,7 +38,7 @@ const Footer = () => {
             <a
               className={`social-links px-1 text-${modeStyle.textColor}`}
               href="https://www.instagram.com/notelyfe/"
-              target="__blank">
+              target="_blank">
               <AiOutlineInstagram />
             </a>
           </li>
@@ -46,7 +46,7 @@ const Footer = () => {
             <a
               className={`social-links px-1 text-${modeStyle.textColor}`}
               href="https://twitter.com/note_lyfe"
-              target="__blank">
+              target="_blank">
               <AiOutlineTwitter />
             </a>
           </li>
@@ -54,7 +54,7 @@ const Footer = () => {
             <a
               className={`social-links px-1 text-${modeStyle.textColor}`}
               href="https://www.linkedin.com/in/notelyfe/"
-              target="__blank">
+              target="_blank">
               <AiOutlineLinkedin />
             </a>
           </li>
