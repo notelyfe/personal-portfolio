@@ -15,28 +15,28 @@ const State = (props) => {
     const host = "http://localhost:5000";
 
     //adding projects
-    const addProject = async ( title, project_link, description, website_link, image_link ) => {
+    const addProject = async ( title, project_link, description, website_link ) => {
         const response = await fetch(`${host}/api/projects/addproject`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem('myToken')
             },
-            body: JSON.stringify({ title, project_link, description, website_link, image_link })
+            body: JSON.stringify({ title, project_link, description, website_link })
         });
         const project = await response.json()
         setProjects(projects.concat(project))
     }
 
     //adding certificate
-    const addCertificate = async ( title, issued_by, certificate_link ) => {
+    const addCertificate = async ( title, issued_by ) => {
         const response = await fetch(`${host}/api/certificates/addCertificate` ,{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem('myToken')
             },
-            body: JSON.stringify({ title, issued_by, certificate_link })
+            body: JSON.stringify({ title, issued_by })
         });
         const certificate = await response.json()
         setCertificates(certificates.concat(certificate))

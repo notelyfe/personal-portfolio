@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ImPointRight } from "react-icons/im";
 import './About.css'
 import Context from '../context/Context'
 import Techstack from './Techstack';
 import Toolstack from './Toolstack';
 import GitHub from './GitHub';
+import Quotes from './Quotes';
 
 const About = () => {
 
   const context = useContext(Context)
-  const { modeStyle } = context
+  const { modeStyle, quotes } = context
+
+  useEffect(() => {
+    quotes.map((data) => {
+      if(data.display === true){
+        setQuote(data)
+      }
+    })
+  })
+  const [quote, setQuote] = useState(quotes)
 
   return (
     <div className={`container text-${modeStyle.textColor} about fs-4`}>
@@ -34,7 +44,8 @@ const About = () => {
             <ImPointRight /> Tweeting my thoughts
           </li>
         </ul>
-        <blockquote className="velvet text-center">NOTELYFE</blockquote>
+          <Quotes quote={quote}/>
+        <blockquote className="velvet text-center" style={{ marginTop: '-15px' }}>&#8212; NOTELYFE</blockquote>
       </div>
       
       <Techstack />

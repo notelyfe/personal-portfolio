@@ -8,14 +8,14 @@ const AdminProject = () => {
 
     const handelSubmit = (e) => {
         e.preventDefault()
-        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link, projectData.image_link)
-        setProjectData({ title: '', description: '', project_link: '', website_link: '', image_link: '' })
+        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link)
+        setProjectData({ title: '', description: '', project_link: '', website_link: '' })
     }
 
     const handelProject = (e) => {
         setProjectData({ ...projectData, [e.target.name]: e.target.value })
     }
-    const [projectData, setProjectData] = useState({ title: '', project_link: '', description: '', website_link: '', image_link:'' })
+    const [projectData, setProjectData] = useState({ title: '', project_link: '', description: '', website_link: '' })
 
     return (
         <div className="container admin-data-container rounded mt-3">
@@ -91,17 +91,14 @@ const AdminProject = () => {
                     <label
                         htmlFor="image_link"
                         className="form-label">
-                        Image Link
+                        Project Image
                     </label>
                     <input
                         required
-                        minLength={5}
-                        type="text"
+                        type="file"
                         className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
                         id="image_link"
-                        onChange={handelProject}
-                        value={projectData.image_link}
-                        name='image_link' />
+                        name='image_link'/>
                 </div>
                 <button
                     type="submit"

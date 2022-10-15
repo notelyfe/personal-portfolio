@@ -25,17 +25,14 @@ const AdminResume = () => {
           <label
             htmlFor="resume_link"
             className="form-label">
-            Resume Link
+            Resume
           </label>
           <input
             required
-            minLength={5}
-            type="text"
+            type="file"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
             id="resume_link"
-            aria-describedby="resume_link" 
-            onChange={handelResume}
-            value = {resumeLink}/>
+            aria-describedby="resume_link" />
         </div>
         <button type='submit' className="btn btn-primary ">Upload</button>
       </form>

@@ -8,14 +8,14 @@ const AdminCertificate = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault()
-    addCertificate( certificateData.title, certificateData.issued_by, certificateData.certificate_link )
-    setCertificateData({ title: '', issued_by: '', certificate_link: '' })
+    addCertificate( certificateData.title, certificateData.issued_by )
+    setCertificateData({ title: '', issued_by: '' })
   }
 
   const handelCertificate = (e) => {
     setCertificateData({ ...certificateData, [e.target.name]: e.target.value })
   }
-  const [certificateData, setCertificateData] = useState({ title: '', issued_by: '', certificate_link: '' })
+  const [certificateData, setCertificateData] = useState({ title: '', issued_by: '' })
 
   return (
     <div className="container admin-data-container rounded mt-3" style={{ marginBottom: '22vh' }}>
@@ -58,17 +58,14 @@ const AdminCertificate = () => {
           <label
             htmlFor="certificate_link"
             className="form-label">
-            Certificate Link
+            Certificate File
           </label>
           <input
             required
-            minLength={5}
-            type="text"
+            type="file"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
             id="certificate_link"
-            aria-describedby="certificate_link" 
-            onChange={handelCertificate}
-            value={certificateData.certificate_link}
+            aria-describedby="certificate_link"
             name='certificate_link'/>
         </div>
         <button

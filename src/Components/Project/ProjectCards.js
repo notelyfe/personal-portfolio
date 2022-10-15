@@ -10,7 +10,7 @@ const ProjectCards = ({ title, description, image, websiteLink, projectLink }) =
 
   return (
     <div className={`card my-4 mx-2 bg-${modeStyle.bgColor}`} style={{ width: '25rem', height: '32rem' }}>
-      <img src={image} className="card-img-top rounded my-2 " alt="Project Image" />
+      <img src={image} className="card-img-top rounded my-2 " alt="Project Image" style={{height: '300px'}}/>
       <div className="card-body">
         <div className="content my-1">
           <h5 className="card-title text-center velvet text-capitalize">{title}</h5>
