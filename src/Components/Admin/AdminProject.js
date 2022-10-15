@@ -8,14 +8,14 @@ const AdminProject = () => {
 
     const handelSubmit = (e) => {
         e.preventDefault()
-        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link)
-        setProjectData({ title: '', description: '', project_link: '', website_link: '' })
+        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link, projectData.image_link)
+        setProjectData({ title: '', description: '', project_link: '', website_link: '', image_link: '' })
     }
 
     const handelProject = (e) => {
         setProjectData({ ...projectData, [e.target.name]: e.target.value })
     }
-    const [projectData, setProjectData] = useState({ title: '', project_link: '', description: '', website_link: '' })
+    const [projectData, setProjectData] = useState({ title: '', project_link: '', description: '', website_link: '', image_link:'' })
 
     return (
         <div className="container admin-data-container rounded mt-3">
@@ -87,14 +87,25 @@ const AdminProject = () => {
                         value={projectData.description}
                         name='description' />
                 </div>
-                <div className='my-3'>
+                <div className="mb-3">
+                    <label
+                        htmlFor="image_link"
+                        className="form-label">
+                        Image Link
+                    </label>
                     <input
-                        type="file"
-                        className={` form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`} />
+                        required
+                        minLength={5}
+                        type="text"
+                        className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
+                        id="image_link"
+                        onChange={handelProject}
+                        value={projectData.image_link}
+                        name='image_link' />
                 </div>
                 <button
                     type="submit"
-                    className="btn btn-primary">
+                    className="btn btn-primary ">
                     Upload
                 </button>
             </form>

@@ -32,6 +32,9 @@ const Admin = () => {
     }
     else {
       setPrompt(true)
+      setTimeout(() => {
+        setPrompt(false)
+      }, 1000);
     }
   }
   const [prompt, setPrompt] = useState(false)

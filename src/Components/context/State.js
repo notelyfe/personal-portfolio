@@ -9,17 +9,53 @@ const State = (props) => {
     const host = "http://localhost:5000";
 
     //adding projects
-    const addProject = async ( title, project_link, description, website_link ) => {
+    const addProject = async ( title, project_link, description, website_link, image_link ) => {
         const response = await fetch(`${host}/api/projects/addproject`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem('myToken')
             },
-            body: JSON.stringify({ title, project_link, description, website_link })
+            body: JSON.stringify({ title, project_link, description, website_link, image_link })
         });
         const project = await response.json()
         setProjects(projects.concat(project))
+    }
+
+    //adding certificate
+    const addCertificate = async ( title, issued_by, certificate_link ) => {
+        const response = await fetch(`${host}/api/certificates/addCertificate` ,{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem('myToken')
+            },
+            body: JSON.stringify({ title, issued_by, certificate_link })
+        })
+    }
+
+    //adding resume
+    const addResume = async ( resume_link ) => {
+        const response = await fetch(`${host}/api/resume/addResume`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem('myToken')
+            },
+            body: JSON.stringify({ resume_link })
+        })
+    }
+
+    //adding Quotes
+    const addQuote = async ( quote, display ) => {
+        const response = await fetch(`${host}/api/quotes/addQuotes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('myToken')
+            },
+            body: JSON.stringify({ quote, display })
+        })
     }
 
     //fetching projects
@@ -72,7 +108,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: 'light', textColor: 'dark', boxshadow: '0px 0px 10px rgba(20, 16, 21, 0.8)' })
 
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, projects }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, projects, addCertificate, addResume, addQuote }}>
             {props.children}
         </Context.Provider>
     )
