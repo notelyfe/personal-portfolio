@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Context from './Context'
+import axios from 'axios'
 
 const State = (props) => {
 
@@ -15,7 +16,7 @@ const State = (props) => {
     const host = "http://localhost:5000";
 
     //adding projects
-    const addProject = async ( title, project_link, description, website_link ) => {
+    const addProject = async (title, project_link, description, website_link) => {
         const response = await fetch(`${host}/api/projects/addproject`, {
             method: 'POST',
             headers: {
@@ -29,21 +30,25 @@ const State = (props) => {
     }
 
     //adding certificate
-    const addCertificate = async ( title, issued_by ) => {
-        const response = await fetch(`${host}/api/certificates/addCertificate` ,{
-            method: 'POST',
+    const addCertificate = async (title, issued_by, certificate_image) => {
+
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("issued_by", issued_by);
+        formData.append("certificateImage", certificate_image);
+
+        const config = {
             headers: {
-                "Content-Type": "application/json",
-                "auth-token": localStorage.getItem('myToken')
-            },
-            body: JSON.stringify({ title, issued_by })
-        });
-        const certificate = await response.json()
-        setCertificates(certificates.concat(certificate))
+                'Content-Type': 'multipart/form-data',
+                'auth-token': localStorage.getItem('myToken')
+            }
+        }
+
+        const response = await axios.post(`${host}/api/certificates/addCertificate`,formData, config);
     }
 
     //adding resume
-    const addResume = async ( resume_link ) => {
+    const addResume = async (resume_link) => {
         const response = await fetch(`${host}/api/resume/addResume`, {
             method: 'POST',
             headers: {
@@ -57,7 +62,7 @@ const State = (props) => {
     }
 
     //adding Quotes
-    const addQuote = async ( quote, display ) => {
+    const addQuote = async (quote, display) => {
         const response = await fetch(`${host}/api/quotes/addQuotes`, {
             method: 'POST',
             headers: {
@@ -121,10 +126,10 @@ const State = (props) => {
     }
 
     useEffect(() => {
-        fetchProjects()
-        fetchCertificates()
-        fetchResume()
-        fetchQuotes()
+        // fetchProjects()
+        // fetchCertificates()
+        // fetchResume()
+        // fetchQuotes()
     }, [])
 
     const checkValidation = (token) => {
@@ -149,7 +154,7 @@ const State = (props) => {
                 textColor: 'dark',
                 boxshadow: '0px 0px 10px rgba(20, 16, 21, 0.8)'
             })
-            document.body.style.backgroundColor = 'white'   
+            document.body.style.backgroundColor = 'white'
         }
     }
     const [mode, setMode] = useState(true)
