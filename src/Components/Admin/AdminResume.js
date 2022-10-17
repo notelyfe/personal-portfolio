@@ -8,14 +8,14 @@ const AdminResume = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    addResume( resumeLink )
-    setResumeLink('')
+    addResume( resumeFile )
+    setResumeFile('')
   }
 
   const handelResume = (e) => {
-    setResumeLink(e.target.value)
+    setResumeFile(e.target.files[0])
   }
-  const [resumeLink, setResumeLink] = useState('')
+  const [resumeFile, setResumeFile] = useState('')
 
   return (
     <div className="container admin-data-container rounded mt-3" style={{ paddingTop: '8vh', marginBottom: '28vh' }}>
@@ -23,7 +23,7 @@ const AdminResume = () => {
       <form onSubmit={handelSubmit} className={`my-2 rounded p-2 text-${modeStyle.textColor}`} style={{ width: '350px', margin: 'auto', border: '2px solid #2C7090' }}>
         <div className="mb-3">
           <label
-            htmlFor="resume_link"
+            htmlFor="resumeFile"
             className="form-label">
             Resume
           </label>
@@ -31,8 +31,10 @@ const AdminResume = () => {
             required
             type="file"
             className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
-            id="resume_link"
-            aria-describedby="resume_link" />
+            id="resumeFile"
+            aria-describedby="resumeFile" 
+            name='resumeFile'
+            onChange={handelResume}/>
         </div>
         <button type='submit' className="btn btn-primary ">Upload</button>
       </form>

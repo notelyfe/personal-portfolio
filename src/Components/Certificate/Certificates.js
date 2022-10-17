@@ -13,7 +13,7 @@ const Certificates = () => {
       {certificates.map((data) => {
         return <CertificateCard key={data._id}
           title={data.title}
-          certificateLink={data.certificate_link}
+          certificateImage={data.certificate_image}
           issuedBy={data.issued_by} />
       })}
     </div>

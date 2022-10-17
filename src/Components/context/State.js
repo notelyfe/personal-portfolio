@@ -15,20 +15,25 @@ const State = (props) => {
 
     const host = "http://localhost:5000";
 
-    //adding projects
-    const addProject = async (title, project_link, description, website_link) => {
-        const response = await fetch(`${host}/api/projects/addproject`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "auth-token": localStorage.getItem('myToken')
-            },
-            body: JSON.stringify({ title, project_link, description, website_link })
-        });
-        const project = await response.json()
-        setProjects(projects.concat(project))
+    const configAdd = {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            'auth-token': localStorage.getItem('myToken')
+        }
     }
 
+    //adding projects
+    const addProject = async (title, project_link, description, website_link, projectFile) => {
+
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("project_link", project_link);
+        formData.append("website_link", website_link);
+        formData.append("projectImage", projectFile);
+
+        const response = await axios.post(`${host}/api/projects/addproject`, formData, configAdd)
+    }
     //adding certificate
     const addCertificate = async (title, issued_by, certificate_image) => {
 
@@ -37,28 +42,16 @@ const State = (props) => {
         formData.append("issued_by", issued_by);
         formData.append("certificateImage", certificate_image);
 
-        const config = {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'auth-token': localStorage.getItem('myToken')
-            }
-        }
+        const response = await axios.post(`${host}/api/certificates/addCertificate`, formData, configAdd)
 
-        const response = await axios.post(`${host}/api/certificates/addCertificate`,formData, config);
     }
 
     //adding resume
-    const addResume = async (resume_link) => {
-        const response = await fetch(`${host}/api/resume/addResume`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "auth-token": localStorage.getItem('myToken')
-            },
-            body: JSON.stringify({ resume_link })
-        });
-        const res = await response.json()
-        setResume(resume.concat(res))
+    const addResume = async (resumeFile) => {
+        const formData = new FormData();
+        formData.append('resumeFile', resumeFile);
+
+        const response = await axios.post(`${host}/api/resume/addResume`, formData, configAdd)
     }
 
     //adding Quotes
@@ -75,30 +68,25 @@ const State = (props) => {
         setQuotes(quotes.concat(quot))
     }
 
+    //config fetch
+    const configFetch = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
     //fetching projects
     const fetchProjects = async () => {
-        const response = await fetch(`${host}/api/projects/getprojects`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-        });
-        const json = await response.json()
-
-        setProjects(json)
+        const response = await axios.post(`${host}/api/projects/getprojects`,configFetch )
+            
+        setProjects(response.data)
     }
 
     //fetching certificate
     const fetchCertificates = async () => {
-        const response = await fetch(`${host}/api/certificates/fetchCertificate`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-        });
-        const json = await response.json()
+        const response = await axios.post(`${host}/api/certificates/fetchCertificate`,configFetch )
 
-        setCertificates(json)
+        setCertificates(response.data)
     }
     //fetching resume
     const fetchResume = async () => {
@@ -114,22 +102,16 @@ const State = (props) => {
     }
     //fetching Quotes
     const fetchQuotes = async () => {
-        const response = await fetch(`${host}/api/quotes/fetchQuotes`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-        });
-        const json = await response.json()
+        const response = await axios.post(`${host}/api/quotes/fetchQuotes`,configFetch )
 
-        setQuotes(json)
+        setQuotes(response.data)
     }
 
     useEffect(() => {
-        // fetchProjects()
-        // fetchCertificates()
+        fetchProjects()
+        fetchCertificates()
         // fetchResume()
-        // fetchQuotes()
+        fetchQuotes()
     }, [])
 
     const checkValidation = (token) => {

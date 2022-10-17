@@ -17,7 +17,7 @@ const Projects = () => {
         return <ProjectCards key={data._id}
           title={data.title}
           description={data.description}
-          image={data.image_link}
+          image={data.project_image}
           websiteLink={data.website_link}
           projectLink={data.project_link} />
       })}

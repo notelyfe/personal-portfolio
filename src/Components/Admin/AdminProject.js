@@ -8,9 +8,14 @@ const AdminProject = () => {
 
     const handelSubmit = (e) => {
         e.preventDefault()
-        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link)
+        addProject(projectData.title, projectData.project_link, projectData.description, projectData.website_link, projectFile)
         setProjectData({ title: '', description: '', project_link: '', website_link: '' })
     }
+
+    const handelProjectFile = (e) => {
+        setProjectFile(e.target.files[0])
+    }
+    const [projectFile, setProjectFile] = useState('')
 
     const handelProject = (e) => {
         setProjectData({ ...projectData, [e.target.name]: e.target.value })
@@ -89,7 +94,7 @@ const AdminProject = () => {
                 </div>
                 <div className="mb-3">
                     <label
-                        htmlFor="image_link"
+                        htmlFor="projectImage"
                         className="form-label">
                         Project Image
                     </label>
@@ -97,8 +102,9 @@ const AdminProject = () => {
                         required
                         type="file"
                         className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
-                        id="image_link"
-                        name='image_link'/>
+                        id="projectImage"
+                        onChange={handelProjectFile}
+                        name='projectImage'/>
                 </div>
                 <button
                     type="submit"
