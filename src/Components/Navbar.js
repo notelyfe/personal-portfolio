@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import './Navbar.css'
 import logo from './Assets/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {
     AiOutlineHome,
     AiOutlineUser,
@@ -11,7 +11,6 @@ import { TbCertificate } from "react-icons/tb";
 import { RiAdminLine } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
 import Context from './context/Context';
-import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -19,6 +18,16 @@ const Navbar = () => {
     useEffect(() => {
         
     }, [location]);
+
+    var path = location.pathname;
+    path = path.slice(1,path.length)
+    path = path.charAt(0).toUpperCase() + path.slice(1);
+
+    if(path === ''){
+        document.title = "NOTELYFE | Portfolio"
+    }else{
+        document.title = `${path} | Portfolio`
+    }
 
     const context = useContext(Context)
     const { modeStyle } = context

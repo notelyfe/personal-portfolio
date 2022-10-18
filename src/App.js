@@ -18,6 +18,7 @@ import State from './Components/context/State';
 import Protected from './Components/Protected';
 
 function App() {
+
   return (
     <>
       <State>
@@ -30,7 +31,7 @@ function App() {
             <Route path='/certificates' element={<Certificates />} />
             <Route path='/resume' element={<Resume />} />
             <Route path='/admin' element={<Admin />} />
-            <Route path='/user' element={<Protected Component= {AdminNav} />} />
+            <Route path='/user' element={<Protected Component={AdminNav} />} />
           </Routes>
           <Mode />
           <Footer />

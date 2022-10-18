@@ -15,7 +15,7 @@ const Admin = () => {
   const login = async (e) => {
     e.preventDefault()
 
-    const host = "http://localhost:5000";
+    const host = "https://personal-portfolio-backend.onrender.com";
 
     const response = await fetch(`${host}/api/auth/login`, {
       method: 'POST',

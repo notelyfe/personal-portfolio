@@ -13,7 +13,7 @@ const State = (props) => {
     const [resume, setResume] = useState(resumeInitial)
     const [quotes, setQuotes] = useState(quotesInitial)
 
-    const host = "http://localhost:5000";
+    const host = "https://personal-portfolio-backend.onrender.com";
 
     const configAdd = {
         headers: {

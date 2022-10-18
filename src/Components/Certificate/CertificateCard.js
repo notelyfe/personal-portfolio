@@ -15,7 +15,7 @@ const CertificateCard = ({ title, issuedBy, certificateImage }) => {
             <img src={`data:image/png;base64,${certificateImage}`} className="card-img-top rounded my-2 " alt="certificate image" style={{ height: '200px' }} />
             <div className="card-body">
                 <div className=" my-1">
-                    <h5 className="card-title text-center text-capitalize velvet">{title}</h5>
+                    <h5 className="card-title text-center text-capitalize velvet" style={{height: '75px'}}>{title}</h5>
                     <div className="d-flex">
                         <h6 >Issued By: </h6>
                         <h6 className='mx-2 text-uppercase'>{issuedBy}</h6>
