@@ -5,7 +5,7 @@ const CertificateCard = ({ title, issuedBy, certificateImage }) => {
 
     const context = useContext(Context)
     const { modeStyle } = context
-
+    
     certificateImage = btoa(
         String.fromCharCode(...new Uint8Array(certificateImage.data.data))
     );

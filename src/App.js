@@ -4,7 +4,7 @@ import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Projects from './Components/Project/Projects';
 import Certificates from './Components/Certificate/Certificates';
-import Resume from './Components/Resume';
+import Resume from './Components/Resume/Resume';
 import Admin from './Components/Admin/Admin';
 import Footer from './Components/Footer';
 import Mode from './Components/Mode';

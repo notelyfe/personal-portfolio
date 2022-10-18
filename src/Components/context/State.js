@@ -47,9 +47,10 @@ const State = (props) => {
     }
 
     //adding resume
-    const addResume = async (resumeFile) => {
+    const addResume = async (resumeFile, downloadLink) => {
         const formData = new FormData();
         formData.append('resumeFile', resumeFile);
+        formData.append('download_link', downloadLink);
 
         const response = await axios.post(`${host}/api/resume/addResume`, formData, configAdd)
     }
@@ -90,15 +91,9 @@ const State = (props) => {
     }
     //fetching resume
     const fetchResume = async () => {
-        const response = await fetch(`${host}/api/resume/fetchResume`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-        });
-        const json = await response.json()
+        const response = await axios.post(`${host}/api/resume/fetchResume`,configFetch )
 
-        setResume(json)
+        setResume(response.data)
     }
     //fetching Quotes
     const fetchQuotes = async () => {
@@ -110,7 +105,7 @@ const State = (props) => {
     useEffect(() => {
         fetchProjects()
         fetchCertificates()
-        // fetchResume()
+        fetchResume()
         fetchQuotes()
     }, [])
 
