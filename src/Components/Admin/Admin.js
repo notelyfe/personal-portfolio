@@ -15,7 +15,7 @@ const Admin = () => {
   const login = async (e) => {
     e.preventDefault()
 
-    const host = "https://personal-portfolio-backend.onrender.com";
+    const host = process.env.REACT_APP_HOST;
 
     const response = await fetch(`${host}/api/auth/login`, {
       method: 'POST',
