@@ -33,6 +33,7 @@ const State = (props) => {
         formData.append("projectImage", projectFile);
 
         const response = await axios.post(`${host}/api/projects/addproject`, formData, configAdd)
+
     }
     //adding certificate
     const addCertificate = async (title, issued_by, certificate_image) => {
@@ -53,6 +54,7 @@ const State = (props) => {
         formData.append('download_link', downloadLink);
 
         const response = await axios.post(`${host}/api/resume/addResume`, formData, configAdd)
+
     }
 
     //adding Quotes
@@ -78,27 +80,35 @@ const State = (props) => {
 
     //fetching projects
     const fetchProjects = async () => {
+        loadSpinner("Server is loading...", true)
         const response = await axios.post(`${host}/api/projects/getprojects`,configFetch )
             
+        loadSpinner("", false)
         setProjects(response.data)
     }
 
     //fetching certificate
     const fetchCertificates = async () => {
+        loadSpinner("Server is loading...", true)
         const response = await axios.post(`${host}/api/certificates/fetchCertificate`,configFetch )
 
+        loadSpinner("", false)
         setCertificates(response.data)
     }
     //fetching resume
     const fetchResume = async () => {
+        loadSpinner("Server is loading...", true)
         const response = await axios.post(`${host}/api/resume/fetchResume`,configFetch )
 
+        loadSpinner("", false)
         setResume(response.data)
     }
     //fetching Quotes
     const fetchQuotes = async () => {
+        loadSpinner("Server is loading...", true)
         const response = await axios.post(`${host}/api/quotes/fetchQuotes`,configFetch )
 
+        loadSpinner("", false)
         setQuotes(response.data)
     }
 
@@ -137,8 +147,16 @@ const State = (props) => {
     const [mode, setMode] = useState(true)
     const [modeStyle, setModeStyle] = useState({ bgColor: 'light', textColor: 'dark', boxshadow: '0px 0px 10px rgba(20, 16, 21, 0.8)' })
 
+    const loadSpinner = (message, state) => {
+        setLoading({
+            msg: message,
+            state: state
+        })
+    }
+    const [loading, setLoading] = useState('')
+
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading }}>
             {props.children}
         </Context.Provider>
     )

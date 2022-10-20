@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import State from './Components/context/State';
 import Protected from './Components/Protected';
+import Spinner from './Components/Spinner';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <State>
         <Router>
           <Navbar />
+          <Spinner />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />

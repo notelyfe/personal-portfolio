@@ -7,10 +7,10 @@
     border-radius: 50%;
     opacity: 0.9;
     z-index: 1;
-    cursor: pointer;
 }
 .toggle-mode{
     height: 33px;
     width: 33px;
     border-radius: 50%;
+    cursor: pointer;
 }

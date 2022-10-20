@@ -1,19 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "./AdminStyle.css";
-import { useState } from 'react';
 import Context from '../context/Context';
-import { AiOutlineEye } from "react-icons/ai";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
 
   const context = useContext(Context)
-  const { modeStyle, checkValidation } = context
+  const { modeStyle, checkValidation, loadSpinner } = context
   let navigate = useNavigate()
 
   const login = async (e) => {
     e.preventDefault()
+    loadSpinner('Authenticating please wait...', true)
 
     const host = process.env.REACT_APP_HOST;
 
@@ -25,6 +24,8 @@ const Admin = () => {
       body: JSON.stringify({ user_id, password })
     });
     const json = await response.json();
+    loadSpinner('', false)
+    
     if (json.success) {
       localStorage.setItem('myToken', json.authtoken)
       checkValidation(json.authtoken)
@@ -53,7 +54,7 @@ const Admin = () => {
   const handelPassVisibility = (e) => {
     e.preventDefault()
 
-    {(show === true) ? setShow(false) : setShow(true)}
+    { (show === true) ? setShow(false) : setShow(true) }
   }
   const [show, setShow] = useState(false)
 
@@ -86,7 +87,9 @@ const Admin = () => {
           </div>
           <button
             className="btn btn-primary my-1 admin-btn"
-            onClick={login}>Log In</button>
+            onClick={login}>
+            Log In
+          </button>
         </form>
       </div>
     </>
