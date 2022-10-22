@@ -6,7 +6,7 @@ import "./Spinner.css"
 const Spinner = () => {
 
   const context = useContext(Context)
-  const { loading } = context
+  const { loading } = context  
 
   return (
     <>
