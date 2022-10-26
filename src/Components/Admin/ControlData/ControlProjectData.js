@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaTrash, FaEdit } from "react-icons/fa";
 
-const ControlProjectData = ({ title, description }) => {
+const ControlProjectData = ({ title, description, index }) => {
+
     return (
         <tbody className='text-center' style={{ background: '#05abc4' }}>
             <tr >
-                <th>1</th>
+                <th>{index+1}</th>
                 <th>{title}</th>
                 <th style={{ textAlign: 'justify' }}>{description}</th>
                 <th>

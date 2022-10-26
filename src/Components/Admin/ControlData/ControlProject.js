@@ -23,10 +23,11 @@ const ControlProject = () => {
             </tr>
           </thead>
 
-          {projects.map((data) => {
+          {projects.map((data, index) => {
             return <ControlProjectData key={data._id}
               title={data.title}
-              description={data.description} />
+              description={data.description} 
+              index={index}/>
           })}
 
         </table>

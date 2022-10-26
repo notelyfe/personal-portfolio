@@ -22,9 +22,10 @@ const ControlQuotes = () => {
             </tr>
           </thead>
 
-          {quotes.map((data) => {
+          {quotes.map((data, index) => {
             return <ControlQuotesData key={data._id}
-              quote={data.quote} />
+              quote={data.quote}
+              index={index}/>
           })}
 
         </table>

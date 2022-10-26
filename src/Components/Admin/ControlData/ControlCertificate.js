@@ -23,10 +23,11 @@ const ControlCertificate = () => {
             </tr>
           </thead>
 
-          {certificates.map((data) => {
+          {certificates.map((data, index) => {
             return <ControlCertificateData key={data._id}
               title={data.title}
-              issued={data.issued_by} />
+              issued={data.issued_by} 
+              index={index}/>
           })}
 
         </table>

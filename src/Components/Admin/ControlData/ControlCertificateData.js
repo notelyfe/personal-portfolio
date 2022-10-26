@@ -1,11 +1,11 @@
 import React from 'react'
 import { FaTrash, FaEdit } from "react-icons/fa";
 
-const ControlCertificateData = ({ title, issued }) => {
+const ControlCertificateData = ({ title, issued, index }) => {
   return (
     <tbody className='text-center' style={{ background: '#05abc4' }}>
             <tr >
-                <th>1</th>
+                <th>{index+1}</th>
                 <th>{title}</th>
                 <th style={{text: 'justify'}}>{issued}</th>
                 <th>

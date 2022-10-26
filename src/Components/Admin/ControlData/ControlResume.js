@@ -22,9 +22,10 @@ const ControlResume = () => {
             </tr>
           </thead>
 
-          {resume.map((data) => {
+          {resume.map((data, index) => {
             return <ControlResumeData key={data._id}
-              link={data.download_link}/>
+              link={data.download_link}
+              index={index}/>
           })}
 
         </table>
