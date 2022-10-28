@@ -155,8 +155,15 @@ const State = (props) => {
     }
     const [loading, setLoading] = useState('')
 
+    const deleteConfirm = (state) => {
+        setDelConfirm({
+            state: state
+        })
+    }
+    const [delConfirm, setDelConfirm] = useState('')
+
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm }}>
             {props.children}
         </Context.Provider>
     )

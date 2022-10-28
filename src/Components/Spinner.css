@@ -1,4 +1,4 @@
-.spinner-background {
+.blur-background {
     content: "";
     position: absolute;
     top: 0px;
@@ -9,13 +9,16 @@
 }
 
 .loading-spinner {
-    position: fixed;
-    top: 40%;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 1;
     width: 100%;
+    top: 40%;
+}
+
+.content-position{
+    position: fixed;
+    margin: auto;
+    z-index: 1;
 }

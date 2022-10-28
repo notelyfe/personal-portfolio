@@ -17,6 +17,7 @@ import {
 import State from './Components/context/State';
 import Protected from './Components/Protected';
 import Spinner from './Components/Spinner';
+import DeletePopUp from './Components/Admin/DeletePopup/DeletePopUp';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Router>
           <Navbar />
           <Spinner />
+          <DeletePopUp />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
