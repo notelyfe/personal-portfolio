@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Context from '../../context/Context'
 
-const ControlCertificateData = ({ title, issued, index }) => {
+const ControlCertificateData = ({ id, title, issued, index }) => {
 
   const context = useContext(Context)
   const { deleteConfirm } = context
@@ -12,7 +12,7 @@ const ControlCertificateData = ({ title, issued, index }) => {
   }
 
   const handelDeleted = () => {
-    deleteConfirm(true)
+    deleteConfirm(true, id, 'certificate')
   }
 
   return (

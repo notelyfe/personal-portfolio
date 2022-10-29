@@ -119,6 +119,58 @@ const State = (props) => {
         fetchQuotes()
     }, [])
 
+    //delete config
+    const deleteConfig =  {
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "auth-token": localStorage.getItem('myToken')
+        }
+    }
+
+    //Delete Resume
+    const deleteResume = async (id) => {
+        const response = await axios.delete(`${host}/api/resume/deleteResume/${id}`, deleteConfig)
+
+        //client side delete
+        const newResume = resume.filter((res) => {
+            return res._id !== id
+        })
+        setResume(newResume)
+    }
+
+    //Delete project
+    const deleteProject = async (id) => {
+        const response = await axios.delete(`${host}/api/projects/deleteProject/${id}`, deleteConfig)
+
+        //client side delete
+        const newProject = projects.filter((project) => {
+            return project._id !== id
+        })
+        setProjects(newProject)
+    }
+
+    //Delete Certificate
+    const deleteCertificate = async (id) => {
+        const response = await axios.delete(`${host}/api/certificates/deleteCertificate/${id}`, deleteConfig)
+
+        //client side delete
+        const newCertificate = certificates.filter((certificate) => {
+            return certificate._id !== id
+        })
+        setCertificates(newCertificate)
+    }
+
+    //Delete Quote
+    const deleteQuote = async (id) => {
+        const response = await axios.delete(`${host}/api/quotes/deleteQuote/${id}`, deleteConfig)
+
+        //client side delete
+        const newQuote = quotes.filter((quote) => {
+            return quote._id !== id
+        })
+        setQuotes(newQuote)
+    }
+
     const checkValidation = (token) => {
         setCheckToken(token)
     }
@@ -155,15 +207,17 @@ const State = (props) => {
     }
     const [loading, setLoading] = useState('')
 
-    const deleteConfirm = (state) => {
+    const deleteConfirm = (state, id, doc) => {
         setDelConfirm({
+            id: id,
+            doc: doc,
             state: state
         })
     }
     const [delConfirm, setDelConfirm] = useState('')
 
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote }}>
             {props.children}
         </Context.Provider>
     )

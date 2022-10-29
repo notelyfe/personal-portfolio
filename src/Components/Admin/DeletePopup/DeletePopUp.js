@@ -5,9 +5,25 @@ import Context from '../../context/Context'
 const DeletePopUp = () => {
 
     const context = useContext(Context)
-    const { modeStyle, delConfirm, deleteConfirm } = context
+    const { modeStyle, delConfirm, deleteConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote } = context
 
     const cancelDelete = () => {
+        deleteConfirm(false)
+    }
+
+    const confirmDelete = () => {
+        if(delConfirm.doc === 'project'){
+            deleteProject(delConfirm.id)
+        }
+        else if(delConfirm.doc === 'certificate'){
+            deleteCertificate(delConfirm.id)
+        }
+        else if(delConfirm.doc === 'resume'){
+            deleteResume(delConfirm.id)
+        }
+        else if(delConfirm.doc === 'quotes'){
+            deleteQuote(delConfirm.id)
+        }
         deleteConfirm(false)
     }
 
@@ -28,7 +44,7 @@ const DeletePopUp = () => {
                     }}>
                     <b className={`text-${modeStyle.textColor} p-2 my-2`}>Are You sure you want to Delete this item</b>
                     <button onClick={cancelDelete} className="btn btn-primary mx-1 my3 p-0" style={{ width: '60px', fontSize: '23px' }}>&times;</button>
-                    <button className="btn btn-danger mx-1 my3 p-0" style={{ width: '60px', fontSize: '23px' }}><TiTick /></button>
+                    <button onClick={confirmDelete} className="btn btn-danger mx-1 my3 p-0" style={{ width: '60px', fontSize: '23px' }}><TiTick /></button>
                 </div>
             </div>}
         </>

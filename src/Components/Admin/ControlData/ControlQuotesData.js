@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Context from '../../context/Context'
 
-const ControlQuotesData = ({ quote, index }) => {
+const ControlQuotesData = ({ id, quote, index }) => {
 
     const context = useContext(Context)
     const { deleteConfirm } = context
 
     const handelDeleted = () => {
-        deleteConfirm(true)
+        deleteConfirm(true, id, 'quotes')
     }
 
     return (

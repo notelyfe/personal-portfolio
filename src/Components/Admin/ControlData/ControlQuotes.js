@@ -25,6 +25,7 @@ const ControlQuotes = () => {
           {quotes.map((data, index) => {
             return <ControlQuotesData key={data._id}
               quote={data.quote}
+              id={data._id}
               index={index}/>
           })}
 

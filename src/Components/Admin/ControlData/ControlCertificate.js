@@ -26,6 +26,7 @@ const ControlCertificate = () => {
           {certificates.map((data, index) => {
             return <ControlCertificateData key={data._id}
               title={data.title}
+              id={data._id}
               issued={data.issued_by} 
               index={index}/>
           })}

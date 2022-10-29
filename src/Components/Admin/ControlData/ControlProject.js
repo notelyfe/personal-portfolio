@@ -25,9 +25,10 @@ const ControlProject = () => {
 
           {projects.map((data, index) => {
             return <ControlProjectData key={data._id}
+              id={data._id}
               title={data.title}
-              description={data.description} 
-              index={index}/>
+              description={data.description}
+              index={index} />
           })}
 
         </table>

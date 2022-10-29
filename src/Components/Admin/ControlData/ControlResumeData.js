@@ -2,13 +2,13 @@ import React, {useContext} from 'react'
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Context from '../../context/Context'
 
-const ControlResumeData = ({ link, index }) => {
+const ControlResumeData = ({ link, index, id }) => {
 
     const context = useContext(Context)
     const { deleteConfirm } = context
 
     const handelDeleted = () => {
-        deleteConfirm(true)
+        deleteConfirm(true, id, 'resume')
     }
 
     return (

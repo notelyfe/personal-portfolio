@@ -25,7 +25,8 @@ const ControlResume = () => {
           {resume.map((data, index) => {
             return <ControlResumeData key={data._id}
               link={data.download_link}
-              index={index}/>
+              index={index}
+              id={data._id}/>
           })}
 
         </table>
