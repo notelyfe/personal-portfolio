@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './Project.css'
 import Context from '../context/Context'
 import ProjectCards from './ProjectCards';
 

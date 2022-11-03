@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './AdminNav.css'
 import { AiOutlineFundProjectionScreen, AiOutlineLogin } from "react-icons/ai";
 import { TbCertificate } from "react-icons/tb";
 import { CgFileDocument } from "react-icons/cg";

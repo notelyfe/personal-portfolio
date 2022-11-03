@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ImPointRight } from "react-icons/im";
-import './About.css'
 import Context from '../context/Context'
 import Techstack from './Techstack';
 import Toolstack from './Toolstack';

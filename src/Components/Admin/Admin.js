@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import "./AdminStyle.css";
 import Context from '../context/Context';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';

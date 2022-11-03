@@ -5,10 +5,10 @@ import Context from '../../context/Context'
 const ControlCertificateData = ({ id, title, issued, index }) => {
 
   const context = useContext(Context)
-  const { deleteConfirm } = context
+  const { deleteConfirm,  editConfirm} = context
 
   const handelEdit = () => {
-
+    editConfirm(true, id, 'certificate')
   }
 
   const handelDeleted = () => {

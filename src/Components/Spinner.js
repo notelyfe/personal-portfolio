@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import spinner from './Assets/spinner.gif';
 import Context from './context/Context'
-import "./Spinner.css"
 
 const Spinner = () => {
 

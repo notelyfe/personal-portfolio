@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import logo from '../Assets/logo.png'
-import './Home.css'
 import Typewriter from 'typewriter-effect'
 import Context from '../context/Context'
 import Home2 from './Home2'

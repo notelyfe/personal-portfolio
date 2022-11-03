@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './Mode.css'
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import Context from './context/Context'
 

@@ -216,8 +216,17 @@ const State = (props) => {
     }
     const [delConfirm, setDelConfirm] = useState('')
 
+    const editConfirm = (state, id, doc) => {
+        setEditCnf({
+            id: id,
+            doc: doc,
+            state: state
+        })
+    }
+    const [editCnf, setEditCnf] = useState('')
+
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote }}>
+        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote, editConfirm, editCnf }}>
             {props.children}
         </Context.Provider>
     )
