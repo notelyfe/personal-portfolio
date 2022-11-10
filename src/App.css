@@ -364,6 +364,44 @@ a:hover {
     }
 }
 
+/* <--Spotify--> */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap');
+
+.spotify-container{
+    font-family: 'Kalam', cursive;
+    border: 2px solid #2C7090;
+    min-height: 100px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#0d2d3b, #3db3c5);
+}
+
+.spotify-image{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #2C7090;
+    padding: 1px;
+    color: #1DB954;
+}
+
+.songImage{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}
+
+.songDetails{
+    width: 75%;
+}
+
+.song-url{
+    text-decoration: none;
+}
+
 /* <-- Scroll Bar -->   */
 ::-webkit-scrollbar {
     width: 8px;

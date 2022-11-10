@@ -3,6 +3,7 @@ import logo from '../Assets/logo.png'
 import Typewriter from 'typewriter-effect'
 import Context from '../context/Context'
 import Home2 from './Home2'
+import Spotify from '../Spotify/Spotify'
 
 const Home = () => {
 
@@ -44,6 +45,7 @@ const Home = () => {
         </div>
       </div>
       <Home2 />
+      <Spotify />
     </>
   )
 }

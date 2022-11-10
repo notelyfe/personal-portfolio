@@ -81,8 +81,8 @@ const State = (props) => {
     //fetching projects
     const fetchProjects = async () => {
         loadSpinner("Server is loading...", true)
-        const response = await axios.post(`${host}/api/projects/getprojects`,configFetch )
-            
+        const response = await axios.post(`${host}/api/projects/getprojects`, configFetch)
+
         loadSpinner("", false)
         setProjects(response.data)
     }
@@ -90,7 +90,7 @@ const State = (props) => {
     //fetching certificate
     const fetchCertificates = async () => {
         loadSpinner("Server is loading...", true)
-        const response = await axios.post(`${host}/api/certificates/fetchCertificate`,configFetch )
+        const response = await axios.post(`${host}/api/certificates/fetchCertificate`, configFetch)
 
         loadSpinner("", false)
         setCertificates(response.data)
@@ -98,7 +98,7 @@ const State = (props) => {
     //fetching resume
     const fetchResume = async () => {
         loadSpinner("Server is loading...", true)
-        const response = await axios.post(`${host}/api/resume/fetchResume`,configFetch )
+        const response = await axios.post(`${host}/api/resume/fetchResume`, configFetch)
 
         loadSpinner("", false)
         setResume(response.data)
@@ -106,7 +106,7 @@ const State = (props) => {
     //fetching Quotes
     const fetchQuotes = async () => {
         loadSpinner("Server is loading...", true)
-        const response = await axios.post(`${host}/api/quotes/fetchQuotes`,configFetch )
+        const response = await axios.post(`${host}/api/quotes/fetchQuotes`, configFetch)
 
         loadSpinner("", false)
         setQuotes(response.data)
@@ -117,10 +117,11 @@ const State = (props) => {
         fetchCertificates()
         fetchResume()
         fetchQuotes()
+        getNowPlaying()
     }, [])
 
     //delete config
-    const deleteConfig =  {
+    const deleteConfig = {
         headers: {
             "Content-Type": "multipart/form-data",
             "auth-token": localStorage.getItem('myToken')
@@ -225,8 +226,45 @@ const State = (props) => {
     }
     const [editCnf, setEditCnf] = useState('')
 
+    // <--Spotify-->
+    const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+    const client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+    const refresh_token = process.env.REACT_APP_SPOTIFY_REFRESH_TOKEN;
+
+    const basic = btoa(`${client_id}:${client_secret}`);
+    const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+    const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+
+    const getAccessToken = async () => {
+        const response = await fetch(TOKEN_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                Authorization: `Basic ${basic}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                grant_type: 'refresh_token',
+                refresh_token
+            })
+        });
+        return response.json();
+    };
+
+    const getNowPlaying = async () => {
+        const { access_token } = await getAccessToken();
+
+        const response = await axios.get(NOW_PLAYING_ENDPOINT, {
+            headers: {
+                Authorization: `Bearer ${access_token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        setSong(response.data)
+    }
+    const [song, setSong] = useState('')
+
     return (
-        <Context.Provider value={{ handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote, editConfirm, editCnf }}>
+        <Context.Provider value={{ song, handelDarkMode, mode, modeStyle, checkValidation, checkToken, addProject, addCertificate, addResume, addQuote, projects, certificates, resume, quotes, loadSpinner, loading, deleteConfirm, delConfirm, deleteResume, deleteProject, deleteCertificate, deleteQuote, editConfirm, editCnf }}>
             {props.children}
         </Context.Provider>
     )
