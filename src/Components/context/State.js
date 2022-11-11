@@ -259,7 +259,9 @@ const State = (props) => {
                 'Content-Type': 'application/json'
             }
         });
-        setSong(response.data)
+        if(response.data.item !== null){
+            setSong(response.data)
+        }
     }
     const [song, setSong] = useState('')
 
