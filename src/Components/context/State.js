@@ -114,8 +114,10 @@ const State = (props) => {
 
     // <--Spotify-->
     const getNowPlaying = async () => {
+        loadSpinner("Server is loading...", true)
         const response = await axios.post(`${host}/api/spotify/getNowPlaying`, configFetch)
 
+        loadSpinner("", false)
         if(response.data.item !== null){
             setSong(response.data)
         }
