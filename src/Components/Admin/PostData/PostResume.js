@@ -8,20 +8,14 @@ const AdminResume = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    addResume(resumeFile, downloadLink)
+    addResume(resumeFile)
     setResumeFile('')
-    setDownloadLink('')
   }
 
   const handelResume = (e) => {
     setResumeFile(e.target.files[0])
   }
   const [resumeFile, setResumeFile] = useState('')
-
-  const handelResumeLink = (e) => {
-    setDownloadLink(e.target.value)
-  }
-  const [downloadLink, setDownloadLink] = useState('')
 
   return (
     <div className="container admin-data-container rounded mt-3" style={{ paddingTop: '8vh', marginBottom: '28vh' }}>
@@ -41,22 +35,6 @@ const AdminResume = () => {
             aria-describedby="resumeFile"
             name='resumeFile'
             onChange={handelResume} />
-        </div>
-        <div className="mb-3">
-          <label
-            htmlFor="download_link"
-            className="form-label">
-            Download Link
-          </label>
-          <input
-            required
-            minLength={5}
-            type="text"
-            className={`form-control bg-${modeStyle.bgColor} text-${modeStyle.textColor}`}
-            id="download_link"
-            onChange={handelResumeLink}
-            value={downloadLink}
-            name='download_link' />
         </div>
         <button type='submit' className="btn btn-primary ">Upload</button>
       </form>
