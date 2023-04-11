@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Context from '../context/Context';
 import ResumeData from "./ResumeData";
 
@@ -8,11 +8,10 @@ const Resume = () => {
   const { resume } = context
 
   return (
-    <div className="container fluid resume-section" style={{ marginTop: '90px', paddingBottom: '30px' }}>
+    <div className="container fluid resume-section">
       {resume.map((data) => {
         return <ResumeData key={data._id}
-          resume={data.resume_file}
-          downloadLink={data.download_link} />
+          resume={data.resume_file} />
       })}
     </div>
   )

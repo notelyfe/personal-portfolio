@@ -1,22 +1,28 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AiOutlineDownload } from "react-icons/ai";
 import Context from '../context/Context';
 
-const ResumeData = ({ resume, downloadLink }) => {
+import { Document, Page, pdfjs } from "react-pdf";
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+const ResumeData = ({ resume }) => {
 
     const context = useContext(Context);
     const { modeStyle } = context
 
-    resume = btoa(
-        String.fromCharCode(...new Uint8Array(resume.data.data))
-    );
+    const [width, setWidth] = useState(1200)
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+    }, [])
 
     return (
         <>
             <div className="row">
                 <a
-                    href={downloadLink}
-                    target="_blank"
+                    href={resume}
                     style={{ maxWidth: '250px' }}
                     className="btn btn-primary m-auto">
                     <AiOutlineDownload />
@@ -24,16 +30,19 @@ const ResumeData = ({ resume, downloadLink }) => {
                 </a>
             </div>
 
-            <div className="row resume mx-2" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
-                <div className=" m-auto p-0 " style={{ boxShadow: `${modeStyle.boxshadow}`, width: 'auto' }}>
-                    <img src={`data:image/png;base64,${resume}`} className="img-fluid" alt="notelyfe resume" />
+            <div className="row resume " >
+                <div style={{ boxShadow: `${modeStyle.boxshadow}`, width: 'auto' }}>
+                    <Document file={resume} className="d-flex justify-content-center" >
+                        <Page pageNumber={1}
+                            scale={width > 786 ? 1.7 : 0.6}
+                        />
+                    </Document>
                 </div>
             </div>
 
             <div className="row">
                 <a
-                    href={downloadLink}
-                    target="_blank"
+                    href={resume}
                     style={{ maxWidth: '250px' }}
                     className="btn btn-primary m-auto">
                     <AiOutlineDownload />

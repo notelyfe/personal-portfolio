@@ -34,6 +34,8 @@ const State = (props) => {
 
         const response = await axios.post(`${host}/api/projects/addproject`, formData, configAdd)
 
+        setProjects(projects.concat(response.data))
+
     }
     //adding certificate
     const addCertificate = async (title, issued_by, certificate_image) => {
@@ -45,6 +47,8 @@ const State = (props) => {
 
         const response = await axios.post(`${host}/api/certificates/addCertificate`, formData, configAdd)
 
+        setCertificates(certificates.concat(response.data))
+
     }
 
     //adding resume
@@ -54,6 +58,8 @@ const State = (props) => {
         formData.append('download_link', downloadLink);
 
         const response = await axios.post(`${host}/api/resume/addResume`, formData, configAdd)
+
+        setResume(resume.concat(response.data))
 
     }
 
@@ -119,7 +125,7 @@ const State = (props) => {
 
         loadSpinner("", false)
         if(response.data.item !== null){
-            setSong(response.data)
+            setSong(response?.data)
         }
     }
     const [song, setSong] = useState('')

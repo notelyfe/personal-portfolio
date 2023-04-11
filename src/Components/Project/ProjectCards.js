@@ -7,13 +7,9 @@ const ProjectCards = ({ title, description, image, websiteLink, projectLink }) =
   const context = useContext(Context)
   const { modeStyle } = context
 
-  image = btoa(
-  String.fromCharCode(...new Uint8Array(image.data.data))
-  );
-
   return (
     <div className={`card my-4 mx-2 bg-${modeStyle.bgColor}`} style={{ width: '25rem', height: '32rem' }}>
-      <img src={`data:image/png;base64,${image}`} className="card-img-top rounded my-2 " alt="Project Image" style={{ height: "185px"}}/>
+      <img src={image} className="card-img-top rounded my-2 " alt="Project Image" style={{ height: "185px"}}/>
       <div className="card-body">
         <div className="content my-1">
           <h5 className="card-title text-center velvet text-capitalize">{title}</h5>

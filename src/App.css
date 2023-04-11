@@ -319,8 +319,9 @@ textarea {
     margin: auto;
     z-index: 1;
 }
-@media (max-width: 786px){
-    .blur-background{
+
+@media (max-width: 786px) {
+    .blur-background {
         height: 285vh !important;
     }
 }
@@ -372,7 +373,7 @@ a:hover {
 /* <--Spotify--> */
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap');
 
-.spotify-container{
+.spotify-container {
     font-family: 'Kalam', cursive;
     border: 2px solid #2C7090;
     min-height: 100px;
@@ -382,7 +383,7 @@ a:hover {
     background: linear-gradient(#0d2d3b, #3db3c5);
 }
 
-.spotify-image{
+.spotify-image {
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -391,7 +392,7 @@ a:hover {
     color: #1DB954;
 }
 
-.songImage{
+.songImage {
     width: 25%;
     display: flex;
     justify-content: center;
@@ -399,11 +400,11 @@ a:hover {
     border-right: 1px solid white;
 }
 
-.songDetails{
+.songDetails {
     width: 75%;
 }
 
-.song-url{
+.song-url {
     text-decoration: none;
 }
 
@@ -424,4 +425,17 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: #7eabc0;
     border-radius: 12px;
+}
+
+/* <--Resume--> */
+.resume-section {
+    position: relative !important;
+    padding-top: 110px !important;
+    padding-bottom: 30px !important;
+}
+
+.resume {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: center;
 }
