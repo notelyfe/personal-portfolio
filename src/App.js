@@ -1,48 +1,82 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import React, { useContext } from 'react';
 import './App.css'
-import Navbar from './Components/Navbar';
-import Home from './Components/Home/Home';
-import About from './Components/About/About';
-import Projects from './Components/Project/Projects';
-import Certificates from './Components/Certificate/Certificates';
-import Resume from './Components/Resume/Resume';
-import Admin from './Components/Admin/Admin';
-import Footer from './Components/Footer';
-import Mode from './Components/Mode';
-import AdminNav from './Components/Admin/AdminNav';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from "react-router-dom";
-import State from './Components/context/State';
-import Protected from './Components/Protected';
-import Spinner from './Components/Spinner';
-import DeletePopUp from './Components/Admin/DeletePopup/DeletePopUp';
+import Nav from "./Components/NavBar/Nav";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
+import Home from '../src/Components/Home/Home'
+import About from '../src/Components/About/About'
+import Project from '../src/Components/Project/Project'
+import Certificate from '../src/Components/Certificate/Certificate'
+import Resume from '../src/Components/Resume/Resume'
+import AdminLogin from './Components/Admin/Login/AdminLogin';
+import Footer from './Components/Footer/Footer';
+import Context from './Context/Context';
+
+// <--Admin COnsole Routes-->
+
+import AdminDashboard from './Components/Admin/Dashboard/AdminDashboard';
+import AdminProject from './Components/Admin/ProjectControl/AdminProject';
+import AdminCertificate from './Components/Admin/CertificateControl/AdminCertificate';
+import AdminResume from './Components/Admin/ResumeControl/AdminResume';
+import AdminQuote from './Components/Admin/QuoteControl/AdminQuote';
+import Notification from './Components/Admin/Notification/Notification';
+import Activity from './Components/Admin/Activity/Activity';
+import ManageTheme from './Components/Admin/ManageTheme/ManageTheme';
 
 function App() {
 
+  const { userData } = useContext(Context)
+
+  const Admin_subdomain = () =>
+    window.location.host.split(".")[0] === "admin" ? (
+      <AdminLogin />
+    ) : (
+      <Home />
+    );
+
+
   return (
     <>
-      <State>
-        <Router>
-          <Navbar />
-          <Spinner />
-          <DeletePopUp />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/certificates' element={<Certificates />} />
-            <Route path='/resume' element={<Resume />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/user' element={<Protected Component={AdminNav} />} />
-          </Routes>
-          <Mode />
-          <Footer />
-        </Router>
-      </State>
+      <Router>
+        {window.location.host.split(".")[0] !== "admin" && <Nav />}
+        <Routes>
+          <Route path='/' element={<Admin_subdomain />} />
+          <Route path='/about' element={<About />}></Route>
+          <Route path='/projects' element={<Project />}></Route>
+          <Route path='/certificates' element={<Certificate />}></Route>
+          <Route path='/resume' element={<Resume />}></Route>
+
+          {/* <--Admin Routes--> */}
+
+          {userData?.user_type === "Admin" ? (
+            <Route path="/Admin" element={<AdminDashboard />} >
+              {/* <Route index element={<Navigate to="home" replace />} /> */}
+              <Route path="project" element={<AdminProject />} />
+              <Route path="certificate" element={<AdminCertificate />} />
+              <Route path="resume" element={<AdminResume />} />
+              <Route path="quote" element={<AdminQuote />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="activity" element={<Activity />} />
+              <Route path="manage-theme" element={<ManageTheme />} />
+            </Route>
+          ) : (
+            "404 Page Not Found"
+          )}
+
+          {/* <--Admin Routes End--> */}
+
+          <Route
+            path="*"
+            element={
+              <h1>
+                404 page not found. <Link to="/">Go to home</Link>
+                <br />
+                <Link to={-1}>⬅ go back</Link>
+              </h1>
+            }
+          />
+        </Routes>
+        {window.location.host.split(".")[0] !== "admin" && <Footer />}
+      </Router>
     </>
   );
 }

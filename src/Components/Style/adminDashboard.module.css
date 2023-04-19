@@ -1,0 +1,40 @@
+.dashboardWrapper {
+    width: 100%;
+    /* background-image: url(https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80); */
+    background-image: url(https://images.unsplash.com/photo-1651488829517-95af02975dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+    /* background-image: url(https://images.unsplash.com/photo-1651002288503-51eaa73b5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1654027533986-9252ac069794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1561211919-1947abbbb35b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1638742385167-96fc60e12f59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1658851874316-0c6666b7bf08?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1659636688061-6ce8e846f6dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1658409017311-ab65664563d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1618004912476-29818d81ae2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80); */
+    /* background-image: url(image.png); */
+    /* background-image: url(../assets/img/Gradient.jpg); */
+    /* background-image: url(../assets/img/Gradientpng.png); */
+    /* background-image: url(../assets/img/yellowOrangeGradient.jpg); */
+    /* background-image: url(../assets/backgrounds/bald-tree-under-blue-sky.jpg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    filter: hue-rotate(45deg);
+    overflow: hidden;
+}
+
+.mainWrapper {
+    position: fixed;
+    top: 0px;
+    left: 300px;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(#fff, 0.25);
+    transition: all 300ms;
+}

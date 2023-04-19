@@ -1,0 +1,180 @@
+.backgroundWrapper {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    position: absolute !important;
+    top: 0px !important;
+    left: 0px !important;
+    display: none;
+}
+
+.background {
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    height: 60vh;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
+}
+
+.topContainer {
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bottomContainer {
+    background-color: rgba(255, 255, 255, 0.5);
+    min-height: 50vh;
+    border-radius: 20px;
+}
+
+.btnClose {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    cursor: pointer;
+}
+
+.btnClose:active {
+    transform: scale(0.9);
+}
+
+.togglewrapper {
+    display: block !important;
+    animation: wrapper 200ms 1 both;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes wrapper {
+    0% {
+        transform: scale(0.75);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.form {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftSide {
+    width: 50%;
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%
+}
+
+.rightSide {
+    width: 50%;
+    display: grid;
+    grid-template-rows: 100%
+}
+
+.formData {
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formData label {
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.formData input {
+    width: 95%;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    padding: 0 10px;
+    outline: none;
+}
+
+.formData input {
+    min-height: 45px;
+    height: 45px;
+}
+
+.formData input:focus {
+    outline: 2px solid #2C7090;
+}
+
+.inputFile {
+    padding: 0 !important;
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background-color: #2C7090;
+    width: 150px;
+    height: 45px;
+    border: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.btnSubmit {
+    height: 45px;
+    width: 50%;
+    background-color: #2C7090;
+    color: white;
+    font-size: 22px;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    margin: auto;
+}
+
+.btnSubmit:active {
+    transform: scale(0.9);
+}
+
+.borderTop {
+    border-top: none;
+}
+
+.borderBottom {
+    border-bottom: none;
+}
+
+.borderLeft {
+    border-left: none;
+}
+
+.borderRight {
+    border-right: none;
+}
+
+.previewImg {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+    margin: auto;
+}

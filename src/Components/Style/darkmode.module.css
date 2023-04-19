@@ -1,0 +1,36 @@
+.toggleBtn{
+    display: none;
+}
+
+.label{
+    display: block;
+    width: 50px;
+    height: 26px;
+    background-color: #888;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;
+}
+
+.label:before{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    left: 3px;
+    transition: left 300ms ease-in-out;
+}
+
+.toggleBtn:checked + .label{
+    background-color: #2C7090;
+}
+
+.toggleBtn:checked + .label:before{
+    left: 27px;
+}

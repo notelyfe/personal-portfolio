@@ -1,0 +1,68 @@
+.resumeContainer {
+    padding-top: 110px;
+    min-height: 70vh;
+    margin-bottom: 4px;
+    width: 80%;
+    max-width: 1048px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.downloadBtn {
+    background-color: #2C7090;
+    width: 250px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.downloadBtn:hover {
+    color: #05ABC4;
+    transition: all 0.4s ease;
+}
+
+.resume {
+    width: 93%;
+    margin: auto;
+}
+
+.file {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .resume {
+        width: 90%;
+    }
+}
+
+@media (max-width: 786px) {
+    .resume {
+        width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    .resumeContainer {
+        width: 100%;
+    }
+
+    .resume {
+        width: 87%;
+    }
+}

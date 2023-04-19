@@ -1,0 +1,165 @@
+.dataWrapper {
+    width: 100%;
+    height: 96vh;
+}
+
+.header {
+    text-align: center;
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+.dataContainer {
+    width: 80%;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.actionContainer {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.dataSearchContainer {
+    justify-content: flex-start;
+}
+
+.dataAddContainer {
+    justify-content: flex-end;
+}
+
+.dataAddContainer,
+.dataSearchContainer {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.dataSearchContainer label {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.dataSearchContainer input {
+    height: 40px;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 5px 5px rgba(172, 233, 235, 0.2);
+    border: none;
+    border-radius: 20px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.dataSearchContainer input:focus {
+    outline: 2px solid #2C7090;
+}
+
+.dataAddContainer button {
+    width: 250px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C7090;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.dataAddContainer button:hover {
+    color: #05ABC4;
+}
+
+.dataAddContainer button:active {
+    transform: scale(0.9);
+}
+
+/* <--Table css--> */
+
+.dataDisplayWrapper {
+    width: 100%;
+    height: 72vh;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px) saturate(110%);
+    border-radius: 20px;
+}
+
+/* <--Table css End Here--> */
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+
+.table thead tr {
+    background-color: #2C7090;
+    color: #fafafa;
+    text-align: left;
+    font-weight: bold;
+    height: 70px;
+    font-size: 20px;
+}
+
+.table th,
+.table td {
+    padding: 5px 8px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    min-height: 50px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #a6cdd3;
+}
+
+.actionBtn {
+    width: 80px;
+    height: 35px;
+    margin: 5px;
+    font-size: 17px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    color: #fafafa;
+}
+
+.actionBtn:active {
+    transform: scale(0.9);
+}
+
+.editBtn {
+    background-color: #05ABC4;
+}
+
+.displayBtn {
+    background-color: rgb(177, 98, 230);
+}
+
+.deleteBtn {
+    background-color: red;
+}
+
+/* <--Resume css --> */

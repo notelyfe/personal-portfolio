@@ -1,0 +1,130 @@
+.navContainer {
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px 8px;
+    opacity: 0.9;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    width: 75px;
+    height: 50px;
+}
+
+.navUl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    padding: 10px 12px;
+    height: 63px;
+}
+
+.listItems {
+    margin: 0 6px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItems:hover {
+    color: #2C7090 !important;
+}
+
+.icons {
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.navLink {
+    color: black;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: #2C7090 !important;
+}
+
+.ham {
+    display: none;
+    cursor: pointer;
+    border: 2px solid #2C7090;
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #2C7090;
+    border-radius: 5px;
+}
+
+@media (max-width: 950px) {
+    .listItems {
+        flex-direction: column;
+    }
+
+    .icons {
+        padding: 5px 0;
+    }
+}
+
+@media(max-width: 786px) {
+    .navUl {
+        height: 240px;
+    }
+
+    .ham {
+        display: block;
+    }
+
+    .ham.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .ham.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .ham.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navUl {
+        position: fixed;
+        top: -100%;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.5s;
+        right: 0px;
+        margin: auto;
+        opacity: 0.9;
+        z-index: -1;
+        background-color: #f8f9fa;
+    }
+
+    .navUl.active {
+        top: 70px;
+    }
+
+    .listItems {
+        flex-direction: row;
+    }
+}
