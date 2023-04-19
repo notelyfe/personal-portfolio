@@ -7,6 +7,7 @@ const State = (props) => {
     const [userData, setUserData] = useState(null)
     const [projects, setProjects] = useState([])
     const [certificates, setCertificates] = useState([])
+    const [resume, setResume] = useState([])
 
     // <--fetch project-->
 
@@ -25,9 +26,18 @@ const State = (props) => {
         setCertificates(res?.data)
     }
 
+    // <--fetch resume-->
+
+    const fetchResume = async () => {
+        const res = await api.post("/api/resume/fetchResume")
+
+        setResume(res?.data)
+    }
+
     useEffect(() => {
         fetchProject()
         fetchCertificate()
+        fetchResume()
     }, [])
 
     const handelDarkMode = (prop) => {
@@ -54,7 +64,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: '#f8f9fa', textColor: "#000", boxShadow: "0px 5px 4px 0px rgba(35, 83, 105, 0.137)", mode: "light" })
 
     return (
-        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates }} >
+        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume }} >
             {props.children}
         </Context.Provider>
     )

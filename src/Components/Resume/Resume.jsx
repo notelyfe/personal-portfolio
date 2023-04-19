@@ -5,11 +5,19 @@ import ResumeData from './ResumeData'
 
 const Resume = () => {
 
-  const { modeStyle } = useContext(Context)
+  const { modeStyle, resume } = useContext(Context)
 
   return (
     <div className={style.resumeContainer}>
-      <ResumeData modeStyle={modeStyle} />
+      {resume.map((item) => {
+        return (
+          <ResumeData
+            key={item._id}
+            resumeLink={item.resume_file}
+            modeStyle={modeStyle}
+          />
+        )
+      })}
     </div>
   )
 }
