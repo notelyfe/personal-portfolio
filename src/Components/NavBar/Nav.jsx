@@ -8,10 +8,22 @@ import {
 } from "react-icons/ai";
 import { TbCertificate } from "react-icons/tb";
 import { CgFileDocument } from "react-icons/cg";
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Context from '../../Context/Context'
 
 const Nav = () => {
+
+    let location = useLocation();
+
+    var path = location.pathname;
+    path = path.slice(1, path.length)
+    path = path.charAt(0).toUpperCase() + path.slice(1);
+
+    if (path === '') {
+        document.title = "NOTELYFE | Portfolio"
+    } else {
+        document.title = `${path} | Portfolio`
+    }
 
     const { modeStyle } = useContext(Context)
 

@@ -21,7 +21,7 @@ const ProjectCard = ({ title, description, image, websiteLink, projectLink }) =>
                         <TbExternalLink />
                         Project Link
                     </a>
-                    <a href={{ websiteLink }} className={style.link} target="_blank" rel="noopener noreferrer">
+                    <a href={ websiteLink } className={style.link} target="_blank" rel="noopener noreferrer">
                         <TbExternalLink />
                         WebSite Link
                     </a>
