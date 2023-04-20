@@ -6,7 +6,7 @@ import api, { getAccessToken } from '../../../Services/api'
 
 const AdminProject = () => {
 
-  const { projects, setProjects } = useContext(Context)
+  const { projects, setProjects, setLoading } = useContext(Context)
 
   const [togglewrapper, setTogglewrapper] = useState(false)
   const [projectData, setProjectData] = useState({ title: '', description: '', website_link: '', project_link: '', action: '' })
@@ -26,12 +26,18 @@ const AdminProject = () => {
   }
 
   const toggleStatus = async (id) => {
+
+    setLoading(true)
+
     try {
       const res = await api.patch(`/api/projects/status/${id}`, {}, {
         headers: {
           "access_token": getAccessToken()
         }
       })
+
+      setLoading(false)
+
       if (res?.status === 200) {
         const updatedProject = projects?.map((item) => {
           if (id === item._id) {
@@ -43,6 +49,9 @@ const AdminProject = () => {
         setProjects(updatedProject)
       }
     } catch (error) {
+
+      setLoading(false)
+
       console.log(error)
     }
   }

@@ -13,7 +13,9 @@ import Context from '../../Context/Context'
 
 const Nav = () => {
 
-    let location = useLocation();
+    let location = useLocation()
+    const { modeStyle } = useContext(Context)
+    const [toggleHam, setToggleHam] = useState(false)
 
     var path = location.pathname;
     path = path.slice(1, path.length)
@@ -24,10 +26,6 @@ const Nav = () => {
     } else {
         document.title = `${path} | Portfolio`
     }
-
-    const { modeStyle } = useContext(Context)
-
-    const [toggleHam, setToggleHam] = useState(false)
 
     const toggleActive = () => {
         setToggleHam(!toggleHam)

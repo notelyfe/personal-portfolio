@@ -5,7 +5,7 @@ import Context from '../../../Context/Context'
 
 const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectData, setProjectImage, projectImage }) => {
 
-  const { projects, setProjects } = useContext(Context)
+  const { projects, setProjects, setLoading } = useContext(Context)
   const [previewFile, setPreviewFile] = useState(null)
 
   const handelProjectData = (e) => {
@@ -18,7 +18,10 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
   }
 
   const handelProjectSubmit = async (e) => {
+
     e.preventDefault()
+
+    setLoading(true)
 
     const formData = new FormData();
 
@@ -38,6 +41,8 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
             'access_token': getAccessToken()
           }
         })
+
+        setLoading(false)
 
         let updated_project = JSON.parse(JSON.stringify(projects))
         for (let i = 0; i < updated_project.length; i++) {
@@ -61,6 +66,7 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
           setTogglewrapper(false)
         }
       } catch (error) {
+        setLoading(false)
         console.log("error", error)
       }
 
@@ -76,6 +82,8 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
           }
         })
 
+        setLoading(false)
+
         setProjects(projects.concat(res?.data))
 
         if (res?.status === 200) {
@@ -84,6 +92,7 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
           setProjectImage(null)
         }
       } catch (error) {
+        setLoading(false)
         console.log("error", error)
       }
 

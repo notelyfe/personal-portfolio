@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
 
-  const { modeStyle, setUserData } = useContext(Context)
+  const { modeStyle, setUserData, setLoading } = useContext(Context)
   const [credentials, setCredentials] = useState({ user_id: '', password: '' })
   const navigate = useNavigate()
 
@@ -20,6 +20,9 @@ const AdminLogin = () => {
     e.preventDefault()
 
     try {
+
+      setLoading(true)
+
       const { data } = await api.post("/api/auth/login", credentials);
 
       localStorage.setItem("access_token", data.access_token)
@@ -35,8 +38,14 @@ const AdminLogin = () => {
         navigate("/Admin")
       }
 
+      setLoading(false)
+
     } catch (error) {
+
+      setLoading(false)
+      
       console.log("error", error?.response?.data?.error)
+
     }
   }
 

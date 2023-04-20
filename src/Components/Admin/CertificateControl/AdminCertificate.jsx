@@ -6,7 +6,7 @@ import api, { getAccessToken } from '../../../Services/api'
 
 const AdminCertificate = () => {
 
-  const { certificates, setCertificates } = useContext(Context)
+  const { certificates, setCertificates, setLoading } = useContext(Context)
 
   const [togglewrapper, setTogglewrapper] = useState(false)
   const [certificateData, setCertificateData] = useState({ title: '', issued_by: '', action: '' })
@@ -24,6 +24,9 @@ const AdminCertificate = () => {
   }
 
   const toggleStatus = async (id) => {
+
+    setLoading(true)
+
     try {
 
       const res = await api.patch(`/api/certificates/status/${id}`, {}, {
@@ -31,6 +34,8 @@ const AdminCertificate = () => {
           "access_token": getAccessToken()
         }
       })
+
+      setLoading(false)
 
       if (res?.status === 200) {
         let updated_status = certificates.map((item) => {
@@ -45,6 +50,7 @@ const AdminCertificate = () => {
       }
 
     } catch (error) {
+      setLoading(false)
       console.log(error)
     }
   }

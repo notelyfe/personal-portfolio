@@ -5,7 +5,7 @@ import api, { getAccessToken } from '../../../Services/api'
 
 const PostCertificate = ({ togglewrapper, setTogglewrapper, setCertificateImage, certificateImage, setCertificateData, certificateData }) => {
 
-    const { certificates, setCertificates } = useContext(Context)
+    const { certificates, setCertificates, setLoading } = useContext(Context)
     const [previewFile, setPreviewFile] = useState(null)
 
     const handelCertificateData = (e) => {
@@ -20,6 +20,8 @@ const PostCertificate = ({ togglewrapper, setTogglewrapper, setCertificateImage,
     const handelCertificateSubmit = async (e) => {
         e.preventDefault()
 
+        setLoading(true)
+
         let formData = new FormData()
         formData.append("title", certificateData.title)
         formData.append("issued_by", certificateData.issued_by)
@@ -33,6 +35,8 @@ const PostCertificate = ({ togglewrapper, setTogglewrapper, setCertificateImage,
                         'access_token': getAccessToken()
                     }
                 })
+
+                setLoading(false)
 
                 const updated_certificate = certificates?.map((item) => {
                     if (item._id === certificateData.id) {
@@ -64,6 +68,8 @@ const PostCertificate = ({ togglewrapper, setTogglewrapper, setCertificateImage,
                     }
                 })
 
+                setLoading(false)
+
                 setCertificates(certificates.concat(res?.data))
 
                 if (res?.status === 200) {
@@ -73,6 +79,7 @@ const PostCertificate = ({ togglewrapper, setTogglewrapper, setCertificateImage,
                 }
 
             } catch (error) {
+                setLoading(false)
                 console.log(error)
             }
         }

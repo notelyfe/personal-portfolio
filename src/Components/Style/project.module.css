@@ -33,6 +33,7 @@
     margin: 20px;
     box-shadow: 0px 5px 4px 3px rgba(28, 137, 188, 0.137);
     transition: all 0.4s ease;
+    padding: 0 10px ;
 }
 
 .projectCard:hover {

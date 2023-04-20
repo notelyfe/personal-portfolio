@@ -8,30 +8,45 @@ const State = (props) => {
     const [projects, setProjects] = useState([])
     const [certificates, setCertificates] = useState([])
     const [resume, setResume] = useState([])
+    const [loading, setLoading] = useState(false)
 
     // <--fetch project-->
 
     const fetchProject = async () => {
 
+        setLoading(true)
+
         const res = await api.post('/api/projects/getprojects')
 
         setProjects(res?.data)
+
+        setLoading(false)
     }
 
     // <--fetch certificate-->
 
     const fetchCertificate = async () => {
+
+        setLoading(true)
+
         const res = await api.post('/api/certificates/fetchCertificate')
 
         setCertificates(res?.data)
+
+        setLoading(false)
     }
 
     // <--fetch resume-->
 
     const fetchResume = async () => {
+
+        setLoading(true)
+
         const res = await api.post("/api/resume/fetchResume")
 
         setResume(res?.data)
+
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -41,7 +56,6 @@ const State = (props) => {
     }, [])
 
     const handelDarkMode = (prop) => {
-        console.log(prop)
         if (prop === true) {
             setModeStyle({
                 bgColor: "rgb(60 60 60)",
@@ -64,7 +78,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: '#f8f9fa', textColor: "#000", boxShadow: "0px 5px 4px 0px rgba(35, 83, 105, 0.137)", mode: "light" })
 
     return (
-        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume }} >
+        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading }} >
             {props.children}
         </Context.Provider>
     )
