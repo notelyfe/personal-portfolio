@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    font-family: Helvetica, sans-serif, Arial;
+}
+
 .velvet {
     color: #2C7090 !important;
 }

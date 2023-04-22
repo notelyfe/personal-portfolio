@@ -50,8 +50,20 @@ h5 {
 }
 
 @media(max-width: 786px) {
-    .footer {
-        flex-direction: column;
+
+    .footerImportant {
+        flex-direction: column !important;
+    }
+
+    .spotifyDark {
+        flex-direction: column !important;
+        height: 150px;
+    }
+
+    .spotifyContainer,
+    .darkModeContainer {
+        width: 95% !important;
+        margin: 5px 0px !important;
     }
 }
 
@@ -96,7 +108,7 @@ h5 {
     justify-content: center;
     align-items: space-between;
     margin: 5px 0;
-    height: 50px;
+    min-height: 50px;
 }
 
 .spotifyImage {
