@@ -10,6 +10,7 @@ const State = (props) => {
     const [resume, setResume] = useState([])
     const [quoteData, setQuoteData] = useState([])
     const [loading, setLoading] = useState(false)
+    const [songs, setSongs] = useState([])
 
     // <--fetch project-->
 
@@ -64,11 +65,24 @@ const State = (props) => {
 
     }
 
+    const fetchSongs = async () => {
+
+        const res = await api.post('/api/spotify/getNowPlaying')
+
+        if (res?.data?.item !== null) {
+
+            setSongs(res?.data)
+
+        }
+
+    }
+
     useEffect(() => {
         fetchProject()
         fetchCertificate()
         fetchResume()
         fetchQuote()
+        fetchSongs()
     }, [])
 
     const handelDarkMode = (prop) => {
@@ -94,7 +108,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: '#f8f9fa', textColor: "#000", boxShadow: "0px 5px 4px 0px rgba(35, 83, 105, 0.137)", mode: "light" })
 
     return (
-        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading, setQuoteData, quoteData }} >
+        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading, setQuoteData, quoteData, songs }} >
             {props.children}
         </Context.Provider>
     )

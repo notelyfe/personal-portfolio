@@ -1,33 +1,32 @@
-.footer{
+.footer {
     position: relative;
     top: 80px;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
     padding: 18px 10px;
     opacity: 0.9;
 }
 
-.developer{
+.developer {
     width: 120px;
     height: 30px;
 }
 
-.copyright{
+.copyright {
     padding: 10px 12px;
     margin: 5px 10px;
 }
 
-h5{
+h5 {
     font-size: 22px;
     font-weight: 500;
 }
 
-.socialLinkContainer{
+.socialLinkContainer {
     width: 250px;
 }
 
-.footerLinks{
+.footerLinks {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -36,17 +35,17 @@ h5{
     list-style: none;
 }
 
-.listItem{
+.listItem {
     padding: 5px 10px;
     margin: 5px 0;
 }
 
-.socialLinks{
+.socialLinks {
     font-size: 23px;
     color: black;
 }
 
-.socialLinks:hover{
+.socialLinks:hover {
     color: #2C7090 !important;
 }
 
@@ -54,4 +53,71 @@ h5{
     .footer {
         flex-direction: column;
     }
+}
+
+.footerImportant {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.spotifyContainer,
+.darkModeContainer {
+    width: 36%;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.spotifyContainer {
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.darkModeContainer {
+    justify-content: flex-end;
+}
+
+.spotifyIcon {
+    color: #1ed760;
+    font-size: 30px;
+    border: 2px solid #2C7090;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.spotifyDark {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    align-items: space-between;
+    margin: 5px 0;
+    height: 50px;
+}
+
+.spotifyImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #2C7090;
+    padding: 2px;
+}
+
+.songName {
+    color: #2C7090;
+    text-decoration: none;
+}
+
+.spotifyWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    border-radius: 16px;
+    padding: 8px 12px;
+    background: linear-gradient(#ced4da, #adb5bd);
 }
