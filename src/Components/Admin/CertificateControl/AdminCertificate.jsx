@@ -3,6 +3,7 @@ import dataStyle from '../../Style/dataControl.module.css'
 import PostCertificate from './PostCertificate'
 import Context from '../../../Context/Context'
 import api, { getAccessToken } from '../../../Services/api'
+import Delete from '../DeleteModal/Delete'
 
 const AdminCertificate = () => {
 
@@ -11,6 +12,8 @@ const AdminCertificate = () => {
   const [togglewrapper, setTogglewrapper] = useState(false)
   const [certificateData, setCertificateData] = useState({ title: '', issued_by: '', action: '' })
   const [certificateImage, setCertificateImage] = useState(null)
+  const [toggleDelete, setToggleDelete] = useState(false)
+  const [deleteValues, setDeleteValue] = useState({ id: '', header: '', title: '' })
 
   const editCertificate = (id, title, issued_by, certificate_image) => {
     setCertificateData({
@@ -53,6 +56,15 @@ const AdminCertificate = () => {
       setLoading(false)
       console.log(error)
     }
+  }
+
+  const deleteCertificate = (id, header, title) => {
+    setDeleteValue({
+      id: id,
+      header: header,
+      title: title
+    })
+    setToggleDelete(true)
   }
 
   return (
@@ -108,6 +120,7 @@ const AdminCertificate = () => {
                           {item.isActive === true ? "Hide" : "Show"}
                         </button>
                         <button
+                          onClick={() => deleteCertificate(item._id, "certificate", item.title)}
                           className={`${dataStyle.actionBtn} ${dataStyle.deleteBtn}`}
                         >
                           Delete
@@ -129,6 +142,12 @@ const AdminCertificate = () => {
         setCertificateData={setCertificateData}
         certificateImage={certificateImage}
         setCertificateImage={setCertificateImage}
+      />
+      <Delete
+        setToggleDelete={setToggleDelete}
+        toggleDelete={toggleDelete}
+        setDeleteValue={setDeleteValue}
+        deleteValues={deleteValues}
       />
     </>
   )

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../../Context/Context'
 
 const Quotes = (quote) => {
+
+  const { quoteData } = useContext(Context)
+
+  let data = quoteData.filter((item) => {
+    return item.isActive === true
+  })
+
   return (
-    <p className='velvet' style={{textAlign: "center", lineHeight: '35px', marginTop: '10px'}}>( {quote.quote} )</p>
+    <>
+      {data.map((item) => {
+        return (
+          <p key={item._id} className='velvet' style={{ textAlign: "center", lineHeight: '35px', marginTop: '10px', textTransform: "uppercase" }}>( {item.quote} )</p>
+        )
+      })}
+    </>
   )
 }
 

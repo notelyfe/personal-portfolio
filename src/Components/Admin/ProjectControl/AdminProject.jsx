@@ -3,6 +3,7 @@ import dataStyle from '../../Style/dataControl.module.css'
 import PostProject from './PostProject'
 import Context from '../../../Context/Context'
 import api, { getAccessToken } from '../../../Services/api'
+import Delete from '../DeleteModal/Delete'
 
 const AdminProject = () => {
 
@@ -11,6 +12,8 @@ const AdminProject = () => {
   const [togglewrapper, setTogglewrapper] = useState(false)
   const [projectData, setProjectData] = useState({ title: '', description: '', website_link: '', project_link: '', action: '' })
   const [projectImage, setProjectImage] = useState(null)
+  const [toggleDelete, setToggleDelete] = useState(false)
+  const [deleteValues, setDeleteValue] = useState({ id: '', header: '', title: '' })
 
   const editProject = (id, title, description, website_link, project_link, project_image) => {
     setProjectData({
@@ -54,6 +57,15 @@ const AdminProject = () => {
 
       console.log(error)
     }
+  }
+
+  const deleteProject = (id, header, title) => {
+    setDeleteValue({
+      id: id,
+      header: header,
+      title: title
+    })
+    setToggleDelete(true)
   }
 
   return (
@@ -105,6 +117,7 @@ const AdminProject = () => {
                           {item.isActive === true ? "Hide" : "Show"}
                         </button>
                         <button
+                          onClick={() => deleteProject(item._id, "project", item.title)}
                           className={`${dataStyle.actionBtn} ${dataStyle.deleteBtn}`}
                         >
                           Delete
@@ -126,6 +139,12 @@ const AdminProject = () => {
         projectData={projectData}
         projectImage={projectImage}
         setProjectImage={setProjectImage}
+      />
+      <Delete
+        setToggleDelete={setToggleDelete}
+        toggleDelete={toggleDelete}
+        setDeleteValue={setDeleteValue}
+        deleteValues={deleteValues}
       />
     </>
   )

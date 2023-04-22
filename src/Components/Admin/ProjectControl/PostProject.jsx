@@ -44,18 +44,15 @@ const PostProject = ({ setTogglewrapper, togglewrapper, projectData, setProjectD
 
         setLoading(false)
 
-        let updated_project = JSON.parse(JSON.stringify(projects))
-        for (let i = 0; i < updated_project.length; i++) {
-          if (updated_project[i]._id === projectData.id) {
-            updated_project[i].title = projectData.title
-            updated_project[i].description = projectData.description
-            updated_project[i].website_link = projectData.website_link
-            updated_project[i].project_link = projectData.project_link
-            updated_project[i].project_image = projectImage
-            updated_project[i].updated_on = Date.now()
-            break;
+        let updated_project = projects.map((item) => {
+          
+          if(item._id === projectData.id){
+            return {...item, title: projectData.title, description: projectData.description, project_link: projectData.project_link, website_link: projectData.website_link, project_image: projectImage}
+          }else{
+            return item
           }
-        }
+
+        })
 
         setProjects(updated_project)
 

@@ -8,6 +8,7 @@ const State = (props) => {
     const [projects, setProjects] = useState([])
     const [certificates, setCertificates] = useState([])
     const [resume, setResume] = useState([])
+    const [quoteData, setQuoteData] = useState([])
     const [loading, setLoading] = useState(false)
 
     // <--fetch project-->
@@ -49,10 +50,25 @@ const State = (props) => {
         setLoading(false)
     }
 
+    // <--fetch Quotes-->
+
+    const fetchQuote = async () => {
+
+        setLoading(true)
+
+        const res = await api.post('/api/quotes/fetchQuotes')
+
+        setQuoteData(res?.data)
+
+        setLoading(false)
+
+    }
+
     useEffect(() => {
         fetchProject()
         fetchCertificate()
         fetchResume()
+        fetchQuote()
     }, [])
 
     const handelDarkMode = (prop) => {
@@ -78,7 +94,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: '#f8f9fa', textColor: "#000", boxShadow: "0px 5px 4px 0px rgba(35, 83, 105, 0.137)", mode: "light" })
 
     return (
-        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading }} >
+        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading, setQuoteData, quoteData }} >
             {props.children}
         </Context.Provider>
     )

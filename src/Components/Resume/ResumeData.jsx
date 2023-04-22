@@ -35,7 +35,6 @@ const ResumeData = ({ modeStyle, resumeLink }) => {
                 <Document file={resumeLink} className={style.file} >
                     <Page
                         pageNumber={1}
-                        // scale={width > 786 ? 1.7 : 0.6}
                         scale={width > 1024 ? 1.6 : width > 786 ? 1.2 : 0.6}
                     />
                 </Document>
