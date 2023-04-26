@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import style from '../../Style/sideNav.module.css'
 import logo from '../../../Assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom'
@@ -8,16 +8,40 @@ import {
 } from "react-icons/ai";
 import { TbCertificate } from "react-icons/tb";
 import { CgFileDocument } from "react-icons/cg";
-import { BsChatQuote, BsActivity, BsBrush } from "react-icons/bs";
+import { BsChatQuote, BsBrush } from "react-icons/bs";
 import { MdNotificationsNone, MdOutlineLogout } from "react-icons/md";
+import Context from '../../../Context/Context'
+import api, { getAccessToken } from '../../../Services/api'
 
 const SideNav = () => {
 
   const navigate = useNavigate()
+  const { setUserData, notifications } = useContext(Context)
 
   const logout = () => {
     localStorage.removeItem('access_token')
     navigate('/')
+    setUserData(null)
+  }
+
+  const notify = notifications.filter((item) => {
+    return item.isReaded === false
+  })
+
+  const checkReadStatus = async () => {
+
+    let ids = []
+    notify.map((item) => {
+      ids.push(item._id)
+    })
+
+    if (notify.length > 0) {
+      const res = await api.patch('/api/notifications/status', { ids }, {
+        headers: {
+          "access_token": getAccessToken()
+        }
+      })
+    }
   }
 
   return (
@@ -65,16 +89,13 @@ const SideNav = () => {
         <Link
           to="notification"
           className={style.sideNavItem}
+          onClick={checkReadStatus}
         >
           <MdNotificationsNone />
           Notification
-        </Link>
-        <Link
-          to="activity"
-          className={style.sideNavItem}
-        >
-          <BsActivity />
-          Activity
+          {notify?.length > 0 && (
+            <p style={{ margin: '0 20px', padding: '2px 7px', background: 'red', color: "white", borderRadius: '5px' }}>{notify.length}</p>
+          )}
         </Link>
         <Link
           to="manage-theme"

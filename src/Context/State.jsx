@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Context from './Context'
-import api from '../Services/api'
+import api, { getAccessToken } from '../Services/api'
 
 const State = (props) => {
 
@@ -11,6 +11,7 @@ const State = (props) => {
     const [quoteData, setQuoteData] = useState([])
     const [loading, setLoading] = useState(false)
     const [songs, setSongs] = useState([])
+    const [notifications, setNotifications] = useState([])
 
     // <--fetch project-->
 
@@ -77,12 +78,25 @@ const State = (props) => {
 
     }
 
+    const fetchNotification = async () => {
+
+        const res = await api.post('/api/notifications/getNotify', {
+            headers: {
+                "access_token": getAccessToken()
+            }
+        })
+
+        setNotifications(res?.data)
+
+    }
+
     useEffect(() => {
         fetchProject()
         fetchCertificate()
         fetchResume()
         fetchQuote()
         fetchSongs()
+        fetchNotification()
     }, [])
 
     const handelDarkMode = (prop) => {
@@ -108,7 +122,7 @@ const State = (props) => {
     const [modeStyle, setModeStyle] = useState({ bgColor: '#f8f9fa', textColor: "#000", boxShadow: "0px 5px 4px 0px rgba(35, 83, 105, 0.137)", mode: "light" })
 
     return (
-        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading, setQuoteData, quoteData, songs }} >
+        <Context.Provider value={{ handelDarkMode, modeStyle, setUserData, userData, setProjects, projects, setCertificates, certificates, setResume, resume, setLoading, loading, setQuoteData, quoteData, songs, setNotifications, notifications }} >
             {props.children}
         </Context.Provider>
     )

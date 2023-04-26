@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './App.css'
 import Nav from "./Components/NavBar/Nav";
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
 import Home from '../src/Components/Home/Home'
 import About from '../src/Components/About/About'
 import Project from '../src/Components/Project/Project'
@@ -19,7 +19,6 @@ import AdminCertificate from './Components/Admin/CertificateControl/AdminCertifi
 import AdminResume from './Components/Admin/ResumeControl/AdminResume';
 import AdminQuote from './Components/Admin/QuoteControl/AdminQuote';
 import Notification from './Components/Admin/Notification/Notification';
-import Activity from './Components/Admin/Activity/Activity';
 import ManageTheme from './Components/Admin/ManageTheme/ManageTheme';
 import Loading from './Components/LoadingSpinner/Loading';
 
@@ -56,7 +55,6 @@ function App() {
             <Route path="resume" element={<AdminResume />} />
             <Route path="quote" element={<AdminQuote />} />
             <Route path="notification" element={<Notification />} />
-            <Route path="activity" element={<Activity />} />
             <Route path="manage-theme" element={<ManageTheme />} />
           </Route>
         ) : (
