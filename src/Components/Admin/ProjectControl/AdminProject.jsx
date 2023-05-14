@@ -95,7 +95,7 @@ const AdminProject = () => {
                   <th style={{ Width: "20%" }}>Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className={dataStyle.tableBody}>
                 {projects.map((item, index) => {
                   return (
                     <tr key={item._id}>
