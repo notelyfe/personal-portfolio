@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import loadStyle from '../Style/loading.module.css'
+import Context from '../../Context/Context'
 
 const Loading = () => {
 
-  const [timer, setTimer] = useState(32)
+  const {setLoading} = useContext(Context)
+  const [timer, setTimer] = useState(60)
   var clearTimer
 
   useEffect(() => {
@@ -20,6 +22,10 @@ const Loading = () => {
 
       setTimer(timer - 1)
 
+      if(timer === 0){
+        setLoading(false)
+      }
+
     }, [1000]);
 
     return () => clearInterval(clearTimer)
@@ -32,7 +38,7 @@ const Loading = () => {
       <div className={loadStyle.content}>
         <div className={loadStyle.loader}></div>
         <p className={loadStyle.timer}>
-          {`Server will start in ${timer}s`}
+          {`Server will start in ${timer} s`}
         </p>
       </div>
     </div>
