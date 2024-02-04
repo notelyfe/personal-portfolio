@@ -3,6 +3,7 @@ import GitHubCalendar from 'react-github-calendar';
 import style from '../Style/about.module.css'
 
 const GitHub = () => {
+
   return (
     <div className={style.gitHubContainer}>
       <h1 className="text-center mt-3 " >
@@ -12,7 +13,6 @@ const GitHub = () => {
         username="notelyfe"
         blockSize={15}
         blockMargin={5}
-        color="#2C7090"
         fontSize={16}
         showWeekdayLabels={true}
       />

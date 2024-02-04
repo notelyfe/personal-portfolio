@@ -91,7 +91,7 @@ const AdminQuote = () => {
             <table className={dataStyle.table}>
               <thead>
                 <tr>
-                  <th >S No.</th>
+                  <th style={{width: "75px"}}>S No.</th>
                   <th >Quote</th>
                   <th >Status</th>
                   <th >Action</th>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import dataStyle from '../../Style/dataControl.module.css'
 import PostProject from './PostProject'
 import Context from '../../../Context/Context'
@@ -14,6 +14,7 @@ const AdminProject = () => {
   const [projectImage, setProjectImage] = useState(null)
   const [toggleDelete, setToggleDelete] = useState(false)
   const [deleteValues, setDeleteValue] = useState({ id: '', header: '', title: '' })
+  const [searchText, setSearchText] = useState("")
 
   const editProject = (id, title, description, website_link, project_link, project_image) => {
     setProjectData({
@@ -76,7 +77,12 @@ const AdminProject = () => {
           <div className={dataStyle.actionContainer}>
             <div className={dataStyle.dataSearchContainer}>
               <label htmlFor="search">Search: </label>
-              <input type="text" placeholder='Search Project' />
+              <input
+                type="text"
+                placeholder='Search Project'
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
             </div>
             <div className={dataStyle.dataAddContainer}>
               <button onClick={() => {
