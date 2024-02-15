@@ -17,7 +17,7 @@ const Home2 = () => {
                 <br />
                 <br />I am fluent in classics like
                 <i>
-                    <b className="velvet">C++, javascript and Python</b>
+                    <b className="velvet"> javascript and Python</b>
                 </i>
                 <br />
                 <br />

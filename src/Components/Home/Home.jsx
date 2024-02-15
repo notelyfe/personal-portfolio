@@ -32,8 +32,7 @@ const Home = () => {
               options={{
                 strings: [
                   "Deep Learning Engineer",
-                  "Web Developer",
-                  "Open Source Contributor",
+                  "Full Stack Web Developer",
                 ],
                 autoStart: true,
                 loop: true,
