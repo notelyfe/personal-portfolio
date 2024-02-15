@@ -2,8 +2,8 @@ import React from 'react'
 import {
   SiLinux,
   SiVisualstudiocode,
-  SiHeroku,
   SiCloudflare,
+  SiRender
 } from "react-icons/si";
 import style from '../Style/about.module.css'
 
@@ -24,7 +24,7 @@ const Toolstack = () => {
           <SiCloudflare />
         </div>
         <div className={style.techIcons}>
-          <SiHeroku />
+          <SiRender />
         </div>
       </div>
     </div>
